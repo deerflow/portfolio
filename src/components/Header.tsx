@@ -1,10 +1,19 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/react';
 import { Link } from 'gatsby';
+import SwitchThemeButton from './SwitchThemeButton';
 
 const Header: FC = () => {
     return (
-        <header>
+        <header
+            css={css`
+                border: 2px solid black;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 1rem 0 2rem;
+            `}
+        >
             <ul
                 css={css`
                     display: flex;
@@ -13,7 +22,7 @@ const Header: FC = () => {
                     margin: 0;
                     list-style: none;
                     font-weight: 500;
-                    padding: 2rem;
+                    padding: 2rem 0;
                 `}
             >
                 <li>
@@ -37,6 +46,7 @@ const Header: FC = () => {
                     </Link>
                 </li>
             </ul>
+            <SwitchThemeButton />
         </header>
     );
 };

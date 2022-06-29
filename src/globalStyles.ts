@@ -6,6 +6,7 @@ const lightColors = css`
     --text: #33332d;
     --dark: #000;
     --light: #fff;
+    --button: #f9f0e9;
 `;
 
 const darkColors = css`
@@ -14,6 +15,7 @@ const darkColors = css`
     --text: hsl(60, 6%, 90%);
     --dark: #fff;
     --light: #000;
+    --button: hsl(26, 57%, 25%);
 `;
 
 const globalStyles = css`

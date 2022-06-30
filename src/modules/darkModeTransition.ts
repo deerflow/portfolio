@@ -1,20 +1,12 @@
 import { css } from '@emotion/react';
 import settings from '../settings';
 
-const darkModeTransition = (cssProperties: DarkModeCSSProperty | DarkModeCSSProperty[]) => {
-    if (Array.isArray(cssProperties)) {
-        return css`
-            body.theme-transition & {
-                transition: ${cssProperties
-                    .map(cssProperty => `${cssProperty} ${settings.themeTransitionDuration}ms`)
-                    .join(', ')};
-            }
-        `;
-    }
-
+const darkModeTransition = (...cssProperties: DarkModeCSSProperty[]) => {
     return css`
         body.theme-transition & {
-            transition: ${cssProperties} ${settings.themeTransitionDuration}ms;
+            transition: ${cssProperties
+                .map(cssProperty => `${cssProperty} ${settings.themeTransitionDuration}ms`)
+                .join(', ')};
         }
     `;
 };

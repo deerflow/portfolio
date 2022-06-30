@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
-import Moon from './icons/Moon';
+import MoonIcon from './icons/MoonIcon';
 import useDarkMode from '../hooks/useDarkMode';
-import Sun from './icons/Sun';
+import SunIcon from './icons/SunIcon';
 import darkModeTransition from '../modules/darkModeTransition';
 
 const Button = styled.button`
@@ -25,7 +25,7 @@ const SwitchThemeButton: FC = () => {
     const { theme, setTheme } = useDarkMode();
     return (
         <Button onClick={() => setTheme(theme => (theme === 'dark' ? 'light' : 'dark'))}>
-            {theme === 'dark' ? <Sun /> : <Moon />}
+            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
         </Button>
     );
 };

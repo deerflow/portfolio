@@ -9,7 +9,7 @@ const Section: FCWithChildren<Props> = ({ children, style, backgroundColor, dott
     return (
         <section
             css={css`
-                background-color: var(--${backgroundColor});
+                background-color: var(--color-${backgroundColor});
                 ${darkModeTransition('background-color')}
                 ${dotted && dottedBackgroundStyle}
                 ${style}
@@ -23,7 +23,11 @@ const Section: FCWithChildren<Props> = ({ children, style, backgroundColor, dott
 const { dotSize, spaceSize } = settings.dottedBackground;
 
 const dottedBackgroundStyle = css`
-    background-image: radial-gradient(circle at ${dotSize}px ${dotSize}px, var(--dot) ${dotSize}px, transparent 0);
+    background-image: radial-gradient(
+        circle at ${dotSize}px ${dotSize}px,
+        var(--color-static-dot) ${dotSize}px,
+        transparent 0
+    );
     background-size: ${spaceSize}px ${spaceSize}px;
 `;
 

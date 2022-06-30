@@ -17,7 +17,7 @@ const FavIcon: FC = () => {
         >
             <path
                 css={css`
-                    fill: var(--dark);
+                    fill: var(--color-dark);
                     ${darkModeTransition('fill')}
                 `}
                 fill-rule='evenodd'

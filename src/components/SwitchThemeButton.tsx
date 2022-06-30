@@ -6,8 +6,8 @@ import SunIcon from './icons/SunIcon';
 import darkModeTransition from '../modules/darkModeTransition';
 
 const Button = styled.button`
-    background-color: var(--button);
-    border: 3px solid var(--dark);
+    background-color: var(--color-accent);
+    border: 3px solid var(--color-dark);
     width: 3.125rem;
     height: 3.125rem;
     display: flex;
@@ -15,7 +15,7 @@ const Button = styled.button`
     align-items: center;
     transition: box-shadow 200ms ease-out;
     &:hover {
-        box-shadow: -6px 6px 0px #746a61;
+        box-shadow: -6px 6px 0px var(--color-shadow);
     }
     cursor: pointer;
     ${darkModeTransition('background-color', 'border-color')}

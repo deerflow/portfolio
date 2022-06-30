@@ -9,13 +9,21 @@ const Header: FC = () => {
     return (
         <header
             css={css`
-                border: 2px solid var(--dark);
+                margin: 0;
+                border: 2px solid var(--color-dark);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 padding: 0 1rem;
-                background-color: var(--primary);
+                background-color: var(--color-primary);
                 ${darkModeTransition('background-color', 'border-color')}
+                height: var(--header-height);
+                position: fixed;
+                width: 100vw;
+                max-width: 100vw;
+                top: 0;
+                left: 0;
+                font-family: 'IBM Plex Mono';
             `}
         >
             <div
@@ -44,7 +52,6 @@ const Header: FC = () => {
                         margin: 0 0 0 3rem;
                         list-style: none;
                         font-weight: 500;
-                        padding: 2rem 0;
                     `}
                 >
                     <li>

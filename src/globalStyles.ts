@@ -1,8 +1,9 @@
 import { css } from '@emotion/react';
-import darkModeTransition from './modules/darkModeTransition';
+import { scrollTransition, themeTransition } from './modules/Transitions';
 
 const dimensions = css`
-    --header-height: 5.25rem;
+    --dimension-header-height: 5.25rem;
+    --dimension-initial-padding: 1rem;
 `;
 
 const staticColors = css`
@@ -42,25 +43,35 @@ const globalStyles = css`
         padding: 0;
     }
 
-    body {
+    html {
         ${dimensions};
         ${staticColors};
         ${lightColors};
-        font-family: 'IBM Plex Sans', 'system-ui', sans-serif;
-        color: var(--color-text);
-        ${darkModeTransition('color')}
     }
 
-    body.dark {
+    body {
+        font-family: 'IBM Plex Sans', 'system-ui', sans-serif;
+        color: var(--color-text);
+        padding: 1rem var(--dimension-initial-padding);
+        background: var(--color-accent);
+        ${themeTransition('background-color')}
+        ${scrollTransition('padding')}
+    }
+
+    html[data-theme='dark'] {
         ${darkColors};
     }
 
+    html[data-scrolled='true'] {
+        --dimension-initial-padding: 0rem;
+    }
+
     @media (prefers-color-scheme: dark) {
-        body {
+        html {
             ${darkColors};
         }
 
-        body.light {
+        html[data-theme='light'] {
             ${lightColors};
         }
     }
@@ -71,9 +82,9 @@ const globalStyles = css`
     h4,
     h5,
     h6 {
-        font-family: 'Josefin Sans';
+        font-family: 'Josefin Sans', sans-serif;
         color: var(--color-dark);
-        ${darkModeTransition('color')}
+        ${themeTransition('color')}
     }
 
     h1,
@@ -97,7 +108,7 @@ const globalStyles = css`
     a {
         text-decoration: none;
         color: var(--color-text);
-        ${darkModeTransition('color')}
+        ${themeTransition('color')}
     }
 
     a:hover {
@@ -107,7 +118,7 @@ const globalStyles = css`
     }
 
     p {
-        ${darkModeTransition('color')}
+        ${themeTransition('color')}
     }
 `;
 

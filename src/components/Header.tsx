@@ -2,28 +2,28 @@ import React, { FC } from 'react';
 import { css } from '@emotion/react';
 import { Link } from 'gatsby';
 import SwitchThemeButton from './SwitchThemeButton';
-import darkModeTransition from '../modules/darkModeTransition';
+import { scrollTransition, themeTransition } from '../modules/Transitions';
 import FavIcon from './icons/FavIcon';
 
 const Header: FC = () => {
     return (
         <header
             css={css`
-                margin: 0;
+                margin: var(--dimension-initial-padding);
                 border: 2px solid var(--color-dark);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 padding: 0 1rem;
                 background-color: var(--color-primary);
-                ${darkModeTransition('background-color', 'border-color')}
-                height: var(--header-height);
+                height: var(--dimension-header-height);
                 position: fixed;
-                width: 100vw;
-                max-width: 100vw;
+                width: calc(100% - var(--dimension-initial-padding) * 2);
                 top: 0;
                 left: 0;
-                font-family: 'IBM Plex Mono';
+                font-family: 'IBM Plex Mono', monospace;
+                ${themeTransition('background-color', 'border-color')}
+                ${scrollTransition('margin', 'width')}
             `}
         >
             <div

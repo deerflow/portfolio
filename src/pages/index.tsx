@@ -15,18 +15,20 @@ const Home: FC = () => {
                 <title>Accueil - Florian Alù</title>
             </Helmet>
             <Header />
+            <SemiHeaderSpace />
             <Section
                 backgroundColor='primary'
                 style={css`
-                    height: 100vh;
+                    height: calc(100vh - (var(--dimension-initial-padding) * 2 + var(--dimension-header-height) / 2));
+                    margin-bottom: var(--dimension-initial-padding);
                 `}
                 dotted
+                borders
             >
-                <HeaderSpace />
                 <FlexRow
                     grow={1}
                     style={css`
-                        height: calc(100% - var(--header-height));
+                        height: calc(100% - var(--dimension-header-height));
                     `}
                 >
                     <FlexColumn
@@ -53,12 +55,23 @@ const Home: FC = () => {
                     </FlexColumn>
                 </FlexRow>
             </Section>
+            <Section
+                backgroundColor='secondary'
+                style={css`
+                    height: 100vh;
+                    border-top: none;
+                    border-bottom: none;
+                `}
+                borders
+            >
+                <div />
+            </Section>
         </>
     );
 };
 
-const HeaderSpace = styled.div`
-    height: var(--header-height);
+const SemiHeaderSpace = styled.div`
+    height: calc(var(--dimension-header-height) / 2);
 `;
 
 export default Home;

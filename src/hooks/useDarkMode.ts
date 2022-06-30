@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { StateContext } from '../components/StateProvider';
+import settings from '../settings';
 
 const MATCH_DARK = '(prefers-color-scheme: dark)';
 
@@ -18,15 +19,15 @@ const useDarkMode = () => {
 
     useEffect(() => {
         if (theme === null) {
-            document.body.classList.remove('light', 'dark');
+            document.documentElement.removeAttribute('data-theme');
             localStorage.removeItem('theme');
         } else {
-            hydrated && document.body.classList.add('theme-transition');
+            hydrated && document.documentElement.setAttribute('data-theme-transition', 'true');
             clearTimeout(transitionTimeout.current);
             changeTheme(theme);
             transitionTimeout.current = window.setTimeout(
-                () => document.body.classList.remove('theme-transition'),
-                1000
+                () => document.documentElement.removeAttribute('data-theme-transition'),
+                settings.themeTransitionDuration
             );
         }
         if (!hydrated) setHydrated(true);
@@ -36,8 +37,7 @@ const useDarkMode = () => {
 };
 
 const changeTheme = (theme: 'dark' | 'light') => {
-    document.body.classList.remove(theme === 'dark' ? 'light' : 'dark');
-    document.body.classList.add(theme);
+    document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
 };
 

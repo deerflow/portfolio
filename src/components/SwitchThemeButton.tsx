@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import MoonIcon from './icons/MoonIcon';
 import useDarkMode from '../hooks/useDarkMode';
 import SunIcon from './icons/SunIcon';
-import darkModeTransition from '../modules/darkModeTransition';
+import { themeTransition } from '../modules/Transitions';
 
 const Button = styled.button`
     background-color: var(--color-accent);
@@ -18,7 +18,7 @@ const Button = styled.button`
         box-shadow: -6px 6px 0px var(--color-shadow);
     }
     cursor: pointer;
-    ${darkModeTransition('background-color', 'border-color')}
+    ${themeTransition('background-color', 'border-color')}
 `;
 
 const SwitchThemeButton: FC = () => {

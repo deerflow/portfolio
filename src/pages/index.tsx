@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import Header from '../components/Header';
 import Section from '../components/Section';
 import { Helmet } from 'react-helmet';
+import { css } from '@emotion/react';
 
 const Home: FC = () => {
     return (
@@ -10,7 +11,13 @@ const Home: FC = () => {
                 <meta charSet='utf-8' />
                 <title>Accueil - Florian Alù</title>
             </Helmet>
-            <Section color='primary'>
+            <Section
+                backgroundColor='primary'
+                style={css`
+                    height: 100vh;
+                `}
+                dotted
+            >
                 <Header />
             </Section>
         </>

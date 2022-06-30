@@ -13,12 +13,12 @@ const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: box-shadow 200ms;
+    transition: box-shadow 200ms ease-out;
     &:hover {
         box-shadow: -6px 6px 0px #746a61;
     }
     cursor: pointer;
-    ${darkModeTransition(['background-color', 'border-color'])}
+    ${darkModeTransition('background-color', 'border-color')}
 `;
 
 const SwitchThemeButton: FC = () => {

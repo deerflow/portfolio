@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import darkModeTransition from './modules/darkModeTransition';
 
 const lightColors = css`
     --primary: #f3e1d1;
@@ -30,6 +31,7 @@ const globalStyles = css`
         ${lightColors};
         font-family: 'IBM Plex Mono', 'system-ui', sans-serif;
         color: var(--text);
+        ${darkModeTransition('color')}
     }
 
     body.dark {
@@ -49,11 +51,13 @@ const globalStyles = css`
     a {
         text-decoration: none;
         color: var(--text);
+        ${darkModeTransition('color')}
     }
 
     a:hover {
         background-color: var(--text);
         color: var(--light);
+        transition: background-color 0ms;
     }
 `;
 

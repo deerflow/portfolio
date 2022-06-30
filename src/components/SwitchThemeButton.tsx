@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
-import moonSvg from '../assets/moon.svg';
 import Moon from './icons/Moon';
+import useDarkMode from '../hooks/useDarkMode';
+import Sun from './icons/Sun';
+import darkModeTransition from '../modules/darkModeTransition';
 
 const Button = styled.button`
     background-color: var(--button);
@@ -11,13 +13,19 @@ const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: box-shadow 200ms;
+    &:hover {
+        box-shadow: -6px 6px 0px #746a61;
+    }
+    cursor: pointer;
+    ${darkModeTransition(['background-color', 'border-color'])}
 `;
 
 const SwitchThemeButton: FC = () => {
-    console.log(moonSvg);
+    const { theme, setTheme } = useDarkMode();
     return (
-        <Button>
-            <Moon />
+        <Button onClick={() => setTheme(theme => (theme === 'dark' ? 'light' : 'dark'))}>
+            {theme === 'dark' ? <Sun /> : <Moon />}
         </Button>
     );
 };

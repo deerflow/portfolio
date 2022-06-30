@@ -2,16 +2,19 @@ import React, { FC } from 'react';
 import { css } from '@emotion/react';
 import { Link } from 'gatsby';
 import SwitchThemeButton from './SwitchThemeButton';
+import darkModeTransition from '../modules/darkModeTransition';
 
 const Header: FC = () => {
     return (
         <header
             css={css`
-                border: 2px solid black;
+                border: 2px solid var(--dark);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 padding: 0 1rem 0 2rem;
+                background-color: var(--primary);
+                ${darkModeTransition(['background-color', 'border-color'])}
             `}
         >
             <ul

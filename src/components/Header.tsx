@@ -15,7 +15,7 @@ const Header: FC = () => {
                 align-items: center;
                 padding: 0 1rem;
                 background-color: var(--primary);
-                ${darkModeTransition(['background-color', 'border-color'])}
+                ${darkModeTransition('background-color', 'border-color')}
             `}
         >
             <div
@@ -25,7 +25,17 @@ const Header: FC = () => {
                     margin-left: 0.75rem;
                 `}
             >
-                <FavIcon />
+                <Link
+                    to='/'
+                    css={css`
+                        &:hover {
+                            background: none;
+                        }
+                    `}
+                >
+                    <FavIcon />
+                </Link>
+
                 <ul
                     css={css`
                         display: flex;

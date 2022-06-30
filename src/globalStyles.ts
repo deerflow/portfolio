@@ -8,6 +8,7 @@ const lightColors = css`
     --dark: #000;
     --light: #fff;
     --button: #f9f0e9;
+    --dot: rgba(128, 128, 128, 0.05);
 `;
 
 const darkColors = css`

@@ -52,7 +52,7 @@ const globalStyles = css`
     body {
         font-family: 'IBM Plex Sans', 'system-ui', sans-serif;
         color: var(--color-text);
-        padding: 1rem var(--dimension-initial-padding);
+        padding: 0 var(--dimension-initial-padding);
         background: var(--color-accent);
         ${themeTransition('background-color')}
         ${scrollTransition('padding')}

@@ -19,7 +19,7 @@ const Home: FC = () => {
             <Section
                 backgroundColor='primary'
                 style={css`
-                    height: calc(100vh - (var(--dimension-initial-padding) * 2 + var(--dimension-header-height) / 2));
+                    height: calc(100vh - (var(--dimension-initial-padding) + var(--dimension-header-height) / 2));
                     margin-bottom: var(--dimension-initial-padding);
                 `}
                 dotted
@@ -59,8 +59,12 @@ const Home: FC = () => {
                 backgroundColor='secondary'
                 style={css`
                     height: 100vh;
-                    border-top: none;
                     border-bottom: none;
+
+                    position: relative;
+                    html[data-scrolled='true'] & {
+                        bottom: 2px;
+                    }
                 `}
                 borders
             >

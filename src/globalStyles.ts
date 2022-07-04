@@ -19,17 +19,19 @@ const lightColors = css`
     --color-light: #fff;
     --color-accent: #f9f0e9;
     --color-shadow: #746a61;
+    --color-footer: #a7a7a7;
     --color-link: #6286e1;
 `;
 
 const darkColors = css`
-    --color-primary: hsl(28, 59%, 20%);
-    --color-secondary: hsl(249, 94%, 20%);
-    --color-text: hsl(60, 6%, 90%);
+    --color-primary: #513115;
+    --color-secondary: #110363;
+    --color-text: #e7e7e4;
     --color-dark: #fff;
     --color-light: #000;
-    --color-accent: hsl(26, 57%, 25%);
-    --color-shadow: hsl(28, 9%, 50%);
+    --color-accent: #643b1b;
+    --color-shadow: #8b7f74;
+    --color-link: #7e9ce7;
 `;
 
 const globalStyles = css`
@@ -122,6 +124,11 @@ const globalStyles = css`
     ul {
         margin: 0;
         padding: 0;
+    }
+
+    em {
+        font-style: normal;
+        font-weight: 600;
     }
 `;
 

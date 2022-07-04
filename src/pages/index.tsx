@@ -5,6 +5,9 @@ import Header from '../components/Header';
 import SkillsSection from '../components/sections/SkillsSection';
 import HomeSection from '../components/sections/HomeSection';
 import ExperiencesSection from '../components/sections/ExperiencesSection';
+import DegreeSection from '../components/sections/DegreeSection';
+import PersonalitySection from '../components/sections/PersonalitySection';
+import Footer from '../components/Footer';
 
 const Home: FC = () => {
     return (
@@ -19,6 +22,9 @@ const Home: FC = () => {
 
             <SkillsSection />
             <ExperiencesSection />
+            <DegreeSection />
+            <PersonalitySection />
+            <Footer />
         </>
     );
 };

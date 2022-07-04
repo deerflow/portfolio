@@ -6,15 +6,19 @@ const MATCH_DARK = '(prefers-color-scheme: dark)';
 
 const useDarkMode = () => {
     const { theme, setTheme, hydrated, setHydrated } = useContext(StateContext);
-    const [isMediaDark, setIsMediaDark] = useState(window?.matchMedia(MATCH_DARK)?.matches || false);
+    const [isMediaDark, setIsMediaDark] = useState(
+        (typeof window !== 'undefined' && window.matchMedia(MATCH_DARK)?.matches) || false
+    );
 
     const transitionTimeout = useRef<number>(0);
 
     useEffect(() => {
-        const matcher = window.matchMedia(MATCH_DARK);
-        const onChange = ({ matches }: MediaQueryListEvent) => setIsMediaDark(matches);
-        matcher.addEventListener('change', onChange);
-        return () => matcher.removeEventListener('change', onChange);
+        if (typeof window !== 'undefined') {
+            const matcher = window.matchMedia(MATCH_DARK);
+            const onChange = ({ matches }: MediaQueryListEvent) => setIsMediaDark(matches);
+            matcher.addEventListener('change', onChange);
+            return () => matcher.removeEventListener('change', onChange);
+        }
     }, [setIsMediaDark]);
 
     useEffect(() => {
@@ -25,10 +29,10 @@ const useDarkMode = () => {
             hydrated && document.documentElement.setAttribute('data-theme-transition', 'true');
             clearTimeout(transitionTimeout.current);
             changeTheme(theme);
-            transitionTimeout.current = window.setTimeout(
+            transitionTimeout.current = setTimeout(
                 () => document.documentElement.removeAttribute('data-theme-transition'),
                 settings.themeTransitionDuration
-            );
+            ) as unknown as number;
         }
         if (!hydrated) setHydrated(true);
     }, [theme]);

@@ -1,21 +1,28 @@
 import React, { FC } from 'react';
 import SkillList from './SkillList';
 import { FlexRow } from '../../layout/Flex';
+import { css } from '@emotion/react';
+import { Stylable } from '../../../types/_extendFrom';
 
-const SkillCategory: FC<Props> = ({ title, lists }) => {
+const SkillCategory: FC<Props> = ({ title, lists, style }) => {
     return (
-        <div>
+        <div css={style}>
             <h3>{title}</h3>
             <FlexRow>
                 {lists.map(list => (
-                    <SkillList skills={list} />
+                    <SkillList
+                        skills={list}
+                        style={css`
+                            width: 50%;
+                        `}
+                    />
                 ))}
             </FlexRow>
         </div>
     );
 };
 
-interface Props {
+interface Props extends Stylable {
     title: string;
     lists: readonly { title: string; icon: string }[][];
 }

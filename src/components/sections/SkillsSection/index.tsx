@@ -65,11 +65,16 @@ const SkillsSection: FC = () => {
             borders
         >
             <h2>Compétences</h2>
-            <FlexRow>
-                <FlexColumn basis='50%'>
+            <FlexRow wrap>
+                <FlexColumn
+                    basis='calc(50% - 1rem)'
+                    style={css`
+                        margin-right: 2rem;
+                    `}
+                >
                     <SkillCategory title='Technologies' lists={skillsLists.technologies} />
                 </FlexColumn>
-                <FlexColumn basis='50%' justifyContent='space-between'>
+                <FlexColumn basis='calc(50% - 1rem)' justifyContent='space-between'>
                     <SkillCategory title='Outils' lists={skillsLists.tools} />
                     <SkillCategory title='Langues' lists={skillsLists.languages} />
                 </FlexColumn>

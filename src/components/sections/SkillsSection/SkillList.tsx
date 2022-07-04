@@ -1,11 +1,14 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/react';
+import { FlexRow } from '../../layout/Flex';
+import { Stylable } from '../../../types/_extendFrom';
 
-const SkillList: FC<Props> = ({ skills }) => {
+const SkillList: FC<Props> = ({ skills, style }) => {
     return (
         <ul
             css={css`
                 list-style: none;
+                ${style}
             `}
         >
             {skills.map(skill => (
@@ -17,25 +20,31 @@ const SkillList: FC<Props> = ({ skills }) => {
                         font-family: 'IBM Plex Mono', monospace;
                     `}
                 >
-                    <div
-                        css={css`
+                    <FlexRow
+                        style={css`
                             width: 3rem;
                             height: 3rem;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
+                            min-width: 3rem;
                         `}
+                        justifyContent='center'
+                        alignItems='center'
                     >
                         <img src={skill.icon} />
-                    </div>
-                    {skill.title}
+                    </FlexRow>
+                    <p
+                        css={css`
+                            min-width: 12rem;
+                        `}
+                    >
+                        {skill.title}
+                    </p>
                 </li>
             ))}
         </ul>
     );
 };
 
-interface Props {
+interface Props extends Stylable {
     skills: readonly { title: string; icon: string }[];
 }
 

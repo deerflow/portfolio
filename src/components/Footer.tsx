@@ -12,9 +12,7 @@ const Footer: FC = () => {
                 <SocialIcon style={socialIconStyle} icon='gitHub' href='https://github.com/deerflow' />
                 <SocialIcon style={socialIconStyle} icon='mail' href='mailto:alu.florian@gmail.com' />
             </FlexRow>
-            <Copyright>
-                {location.host} {new Date().getFullYear()} - All rights reserved
-            </Copyright>
+            <Copyright>florianalu.net 2022 - All rights reserved</Copyright>
         </FooterTag>
     );
 };

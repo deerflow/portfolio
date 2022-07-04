@@ -98,11 +98,13 @@ const globalStyles = css`
 
     h2 {
         font-size: 3rem;
+        margin: 0 0 2rem;
     }
 
     h3 {
         font-weight: 600;
         font-size: 2.25rem;
+        margin: 0 0 1rem;
     }
 
     a {
@@ -119,6 +121,11 @@ const globalStyles = css`
 
     p {
         ${themeTransition('color')}
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
     }
 `;
 

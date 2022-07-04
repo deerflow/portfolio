@@ -49,6 +49,7 @@ const BackgroundHider = styled.div`
     height: var(--dimension-initial-padding);
     ${scrollTransition('height')}
     background-color: var(--color-accent);
+    ${themeTransition('background-color')}
 `;
 
 const HeaderTag = styled.header`

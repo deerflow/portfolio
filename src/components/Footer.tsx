@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { FlexRow } from './layout/Flex';
 import SocialIcon from './SocialIcon';
 import { css } from '@emotion/react';
+import { themeTransition } from '../modules/Transitions';
 
 const Footer: FC = () => {
     return (
@@ -18,9 +19,10 @@ const Footer: FC = () => {
 };
 
 const FooterTag = styled.footer`
-    border: 2px solid black;
+    border: 2px solid var(--color-dark);
     padding: 2rem;
     color: var(--color-footer);
+    ${themeTransition('color', 'border-color')}
 `;
 
 const Copyright = styled.p`

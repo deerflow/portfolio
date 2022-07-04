@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Section from '../../Section';
 import { css } from '@emotion/react';
+import { themeTransition } from '../../../modules/Transitions';
 
 const PersonalitySection: FC = () => {
     return (
@@ -40,6 +41,9 @@ const styles = {
         }
         li::before {
             content: '- ';
+        }
+        li {
+            ${themeTransition('color')}
         }
     `,
 };

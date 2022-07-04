@@ -3,8 +3,8 @@ import { Stylable } from '../types/_extendFrom';
 import { css } from '@emotion/react';
 import { FCWithChildren } from '../types/utils';
 import settings from '../settings';
-import { scrollTransition, themeTransition } from '../modules/Transitions';
 import styled from '@emotion/styled';
+import { scrollTransition, themeTransition } from '../modules/Transitions';
 
 const Section: FCWithChildren<Props> = ({
     children,
@@ -18,24 +18,28 @@ const Section: FCWithChildren<Props> = ({
 }) => {
     const Section = useMemo(
         () => styled.section`
+            ${baseStyle}
             background-color: var(--color-${backgroundColor});
-            ${themeTransition('background-color', 'border-color')}
-            ${scrollTransition('height', 'margin')}
-                ${dotted ? dottedBackgroundStyle : ''}
-                ${borders ? bindBordersToStyle[borders] : ''}
+            ${dotted ? dottedBackgroundStyle : ''}
+            ${borders ? bindBordersToStyle[borders] : ''}
                 ${stripped ? strippedBackgroundStyle(stripOrientation) : ''}
                 ${padding
                 ? css`
                       padding: 3rem 2.875rem;
                   `
                 : ''}
-                ${style}
+                ${style};
         `,
-        []
+        [style, backgroundColor, dotted, borders, padding, stripped, stripOrientation]
     );
 
     return <Section>{children}</Section>;
 };
+
+const baseStyle = css`
+    ${themeTransition('background-color', 'border-color')}
+    ${scrollTransition('height', 'margin')}
+`;
 
 const { dotSize, spaceSize } = settings.dottedBackground;
 

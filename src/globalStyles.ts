@@ -90,6 +90,12 @@ const globalStyles = css`
         ${themeTransition('color')}
     }
 
+    p,
+    a,
+    time {
+        ${themeTransition('color')}
+    }
+
     h1,
     h2 {
         font-weight: 700;
@@ -113,12 +119,10 @@ const globalStyles = css`
     a {
         text-decoration: none;
         color: var(--color-link);
-        ${themeTransition('color')}
     }
 
     p {
-        ${themeTransition('color')}
-        margin:0
+        margin: 0;
     }
 
     ul {

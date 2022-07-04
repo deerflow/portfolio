@@ -16,7 +16,9 @@ export const StateContext = createContext<{
 
 const StateProvider: FCWithChildren = ({ children }) => {
     useScrollTransition();
-    const [theme, setTheme] = useState(localStorage.getItem('theme') as AppearanceTheme);
+    const [theme, setTheme] = useState(
+        typeof window !== 'undefined' ? (localStorage.getItem('theme') as AppearanceTheme) : null
+    );
     const [hydrated, setHydrated] = useState(false);
 
     return <StateContext.Provider value={{ theme, setTheme, hydrated, setHydrated }}>{children}</StateContext.Provider>;

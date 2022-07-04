@@ -66,27 +66,28 @@ const Header: FC = () => {
                             margin: 0 0 0 3rem;
                             list-style: none;
                             font-weight: 500;
+
+                            a {
+                                padding: 2px 4px;
+                                color: var(--color-text);
+                                &:hover {
+                                    background-color: var(--color-text);
+                                    color: var(--color-light);
+                                }
+                            }
                         `}
                     >
                         <li>
-                            <Link css={linkStyle} to='/'>
-                                Accueil
-                            </Link>
+                            <Link to='/'>Accueil</Link>
                         </li>
                         <li>
-                            <Link css={linkStyle} to='#cv'>
-                                Curriculum Vitae
-                            </Link>
+                            <Link to='#cv'>Curriculum Vitae</Link>
                         </li>
                         <li>
-                            <Link css={linkStyle} to='/portfolio'>
-                                Portfolio
-                            </Link>
+                            <Link to='/portfolio'>Portfolio</Link>
                         </li>
                         <li>
-                            <Link css={linkStyle} to='/contact'>
-                                Contact
-                            </Link>
+                            <Link to='/contact'>Contact</Link>
                         </li>
                     </ul>
                 </div>
@@ -95,14 +96,5 @@ const Header: FC = () => {
         </div>
     );
 };
-
-const linkStyle = css`
-    padding: 2px 4px;
-    color: var(--color-text);
-    & hover {
-        background-color: var(--color-text);
-        color: var(--color-light);
-    }
-`;
 
 export default Header;

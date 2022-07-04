@@ -14,12 +14,12 @@ const useScrollTransition = () => {
         window.addEventListener('scroll', () => {
             document.documentElement.setAttribute('data-just-scrolled', 'true');
             onScroll();
+            clearTimeout(transitionTimeout.current);
+            transitionTimeout.current = setTimeout(
+                () => document.documentElement.removeAttribute('data-just-scrolled'),
+                settings.scrollTransitionDuration
+            ) as unknown as number;
         });
-        clearTimeout(transitionTimeout.current);
-        transitionTimeout.current = window.setTimeout(
-            () => document.documentElement.removeAttribute('data-just-scrolled'),
-            settings.scrollTransitionDuration
-        );
     }, []);
 };
 

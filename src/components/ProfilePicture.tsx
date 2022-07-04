@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import profilePicture from '../assets/profile.jpg';
+import profilePicture from '../assets/jpg/profile.jpg';
 import { css } from '@emotion/react';
 
 const ProfilePicture: FC = () => {

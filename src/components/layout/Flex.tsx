@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { FCWithChildren } from '../types/utils';
+import { FCWithChildren } from '../../types/utils';
 import { css, SerializedStyles } from '@emotion/react';
 
 export const Flex: FCWithChildren<FlexProps> = ({

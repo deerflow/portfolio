@@ -31,6 +31,7 @@ const dottedBackgroundStyle = css`
         transparent 0
     );
     background-size: ${spaceSize}px ${spaceSize}px;
+    background-position: 0 15px;
 `;
 
 interface Props extends Stylable {

@@ -54,15 +54,15 @@ const SkillsSection: FC = () => {
     return (
         <Section
             backgroundColor='secondary'
+            padding
             style={css`
-                border-bottom: none;
-                padding: 3rem 2.875rem;
                 position: relative;
                 html[data-scrolled='true'] & {
                     bottom: 2px;
                 }
             `}
-            borders
+            borders='all-but-bottom'
+            stripped
         >
             <h2>Compétences</h2>
             <FlexRow wrap>

@@ -14,7 +14,7 @@ const HomeSection: FC = () => {
                 padding: 0 2.875rem;
             `}
             dotted
-            borders
+            borders='all'
         >
             <FlexRow
                 grow={1}

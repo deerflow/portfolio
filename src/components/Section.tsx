@@ -5,7 +5,16 @@ import { FCWithChildren } from '../types/utils';
 import { scrollTransition, themeTransition } from '../modules/Transitions';
 import settings from '../settings';
 
-const Section: FCWithChildren<Props> = ({ children, style, backgroundColor, dotted, borders }) => {
+const Section: FCWithChildren<Props> = ({
+    children,
+    style,
+    backgroundColor,
+    dotted,
+    borders,
+    padding,
+    stripped,
+    stripOrientation,
+}) => {
     return (
         <section
             css={css`
@@ -13,7 +22,13 @@ const Section: FCWithChildren<Props> = ({ children, style, backgroundColor, dott
                 ${themeTransition('background-color', 'border-color')}
                 ${scrollTransition('height', 'margin')}
                 ${dotted ? dottedBackgroundStyle : ''}
-                ${borders ? `border: 2px solid var(--color-dark);` : ''}
+                ${borders ? bindBordersToStyle(borders) : ''}
+                ${stripped ? strippedBackgroundStyle(stripOrientation) : ''}
+                ${padding
+                    ? css`
+                          padding: 3rem 2.875rem;
+                      `
+                    : ''}
                 ${style}
             `}
         >
@@ -34,10 +49,37 @@ const dottedBackgroundStyle = css`
     background-position: 0 15px;
 `;
 
+const strippedBackgroundStyle = (stripOrientation: string = '45deg') => css`
+    background-image: repeating-linear-gradient(
+        ${stripOrientation},
+        transparent,
+        transparent 25px,
+        var(--color-static-dot) 2px,
+        var(--color-static-dot) 27px
+    );
+`;
+
+const bindBordersToStyle = (borders: Props['borders']) => {
+    switch (borders) {
+        case 'all':
+            return css`
+                border: 2px solid var(--color-dark);
+            `;
+        case 'all-but-bottom':
+            return css`
+                border: 2px solid var(--color-dark);
+                border-bottom: none;
+            `;
+    }
+};
+
 interface Props extends Stylable {
     backgroundColor: 'primary' | 'secondary';
     dotted?: boolean;
-    borders?: boolean;
+    stripped?: boolean;
+    borders?: 'all' | 'all-but-bottom';
+    padding?: boolean;
+    stripOrientation?: string;
 }
 
 export default Section;

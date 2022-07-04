@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import Section from '../../Section';
 import EventList, { IEvent } from '../../EventList';
-import { css } from '@emotion/react';
 
 const experiences: IEvent[] = [
     {
@@ -9,7 +8,7 @@ const experiences: IEvent[] = [
         title: 'Développeur web et mobile',
         organization: 'Campus Skills',
         organizationHref: 'https://campus-skills.com',
-        city: 'Grenoble',
+        place: 'Grenoble',
         description:
             'Contrat en alternance - Développement d’une application mobile de pédagogie par compétences, ajout de fonctionnalités à une application web existante, développement d’un web scraper',
     },
@@ -18,7 +17,7 @@ const experiences: IEvent[] = [
         title: 'Stage d’observation en entreprise',
         organization: 'Smile',
         organizationHref: 'https://wwW.smile.eu',
-        city: 'Grenoble',
+        place: 'Grenoble',
         description: 'Découverte de l’informatique embarquée, recettage, inventaire',
     },
     {
@@ -26,7 +25,7 @@ const experiences: IEvent[] = [
         title: 'Stage d’observation en entreprise',
         organization: 'HP',
         organizationHref: 'https://hp.com',
-        city: 'Grenoble',
+        place: 'Grenoble',
         description:
             "Entretien avec différents professionnels dans le domaine de l'informatique : développement, réseaux, maintenance, qualité produit, projet.Visite d'un data center.",
     },
@@ -34,14 +33,7 @@ const experiences: IEvent[] = [
 
 const ExperiencesSection: FC = () => {
     return (
-        <Section
-            borders
-            backgroundColor='primary'
-            style={css`
-                border-bottom: none;
-                padding: 3rem 2.875rem;
-            `}
-        >
+        <Section borders='all-but-bottom' backgroundColor='primary' padding dotted>
             <h2>Expériences</h2>
             <EventList events={experiences} />
         </Section>

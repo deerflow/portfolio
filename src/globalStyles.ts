@@ -19,6 +19,7 @@ const lightColors = css`
     --color-light: #fff;
     --color-accent: #f9f0e9;
     --color-shadow: #746a61;
+    --color-link: #6286e1;
 `;
 
 const darkColors = css`
@@ -109,18 +110,13 @@ const globalStyles = css`
 
     a {
         text-decoration: none;
-        color: var(--color-text);
+        color: var(--color-link);
         ${themeTransition('color')}
-    }
-
-    a:hover {
-        background-color: var(--color-text);
-        color: var(--color-light);
-        transition: background-color 0ms;
     }
 
     p {
         ${themeTransition('color')}
+        margin:0
     }
 
     ul {

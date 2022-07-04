@@ -98,6 +98,11 @@ const Header: FC = () => {
 
 const linkStyle = css`
     padding: 2px 4px;
+    color: var(--color-text);
+    & hover {
+        background-color: var(--color-text);
+        color: var(--color-light);
+    }
 `;
 
 export default Header;

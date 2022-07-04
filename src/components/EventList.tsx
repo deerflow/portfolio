@@ -10,7 +10,7 @@ const EventList: FC<{ events: IEvent[] }> = ({ events }) => {
                 font-size: 1.25rem;
             `}
         >
-            {events.map(({ time, title, organization, organizationHref, city, description }, index) => (
+            {events.map(({ time, title, organization, organizationHref, place, description }, index) => (
                 <FlexRow
                     justifyContent='space-evenly'
                     wrap
@@ -21,6 +21,7 @@ const EventList: FC<{ events: IEvent[] }> = ({ events }) => {
                               `
                             : undefined
                     }
+                    key={`${title} - ${time}`}
                 >
                     <time
                         css={css`
@@ -52,15 +53,17 @@ const EventList: FC<{ events: IEvent[] }> = ({ events }) => {
                             ) : (
                                 <span>{organization}</span>
                             )}
-                            , {city}
+                            , {place}
                         </p>
-                        <p
-                            css={css`
-                                margin-top: 1.25rem;
-                            `}
-                        >
-                            {description}
-                        </p>
+                        {description && (
+                            <p
+                                css={css`
+                                    margin-top: 1.25rem;
+                                `}
+                            >
+                                {description}
+                            </p>
+                        )}
                     </div>
                 </FlexRow>
             ))}
@@ -72,8 +75,8 @@ export interface IEvent {
     time: string;
     title: string;
     organization: string;
-    city: string;
-    description: string;
+    place: string;
+    description?: string;
     organizationHref?: string;
 }
 

@@ -9,8 +9,9 @@ const SkillCategory: FC<Props> = ({ title, lists, style }) => {
         <div css={style}>
             <h3>{title}</h3>
             <FlexRow>
-                {lists.map(list => (
+                {lists.map((list, index) => (
                     <SkillList
+                        key={index}
                         skills={list}
                         style={css`
                             width: 50%;

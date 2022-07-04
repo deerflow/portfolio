@@ -6,77 +6,17 @@ import { scrollTransition, themeTransition } from '../modules/Transitions';
 import FavIcon from './icons/FavIcon';
 import styled from '@emotion/styled';
 
-const BackgroundHider = styled.div`
-    height: var(--dimension-initial-padding);
-    ${scrollTransition('height')}
-    background-color: var(--color-accent);
-`;
-
 const Header: FC = () => {
     return (
-        <div
-            css={css`
-                position: fixed;
-                width: calc(100% - var(--dimension-initial-padding) * 2);
-                margin: 0 0 var(--dimension-initial-padding) 0;
-                ${scrollTransition('margin', 'width')}
-                z-index: 1
-            `}
-        >
+        <Root>
             <BackgroundHider />
-            <header
-                css={css`
-                    border: 2px solid var(--color-dark);
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 0 1rem;
-                    background-color: var(--color-primary);
-                    height: var(--dimension-header-height);
-                    width: 100%;
-                    top: 0;
-                    left: 0;
-                    font-family: 'IBM Plex Mono', monospace;
-                    ${themeTransition('background-color', 'border-color')}
-                `}
-            >
-                <div
-                    css={css`
-                        display: flex;
-                        align-items: center;
-                        margin-left: 0.75rem;
-                    `}
-                >
-                    <Link
-                        to='/'
-                        css={css`
-                            &:hover {
-                                background: none;
-                            }
-                        `}
-                    >
+            <HeaderTag>
+                <LeftPart>
+                    <Link to='/' css={styles.faviconLink}>
                         <FavIcon />
                     </Link>
 
-                    <ul
-                        css={css`
-                            display: flex;
-                            width: 38rem;
-                            justify-content: space-between;
-                            margin: 0 0 0 3rem;
-                            list-style: none;
-                            font-weight: 500;
-
-                            a {
-                                padding: 2px 4px;
-                                color: var(--color-text);
-                                &:hover {
-                                    background-color: var(--color-text);
-                                    color: var(--color-light);
-                                }
-                            }
-                        `}
-                    >
+                    <Ul>
                         <li>
                             <Link to='/'>Accueil</Link>
                         </li>
@@ -89,12 +29,73 @@ const Header: FC = () => {
                         <li>
                             <Link to='/contact'>Contact</Link>
                         </li>
-                    </ul>
-                </div>
+                    </Ul>
+                </LeftPart>
                 <SwitchThemeButton />
-            </header>
-        </div>
+            </HeaderTag>
+        </Root>
     );
+};
+
+const Root = styled.div`
+    position: fixed;
+    width: calc(100% - var(--dimension-initial-padding) * 2);
+    margin: 0 0 var(--dimension-initial-padding) 0;
+    ${scrollTransition('margin', 'width')}
+    z-index: 1
+`;
+
+const BackgroundHider = styled.div`
+    height: var(--dimension-initial-padding);
+    ${scrollTransition('height')}
+    background-color: var(--color-accent);
+`;
+
+const HeaderTag = styled.header`
+    border: 2px solid var(--color-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: var(--color-primary);
+    height: var(--dimension-header-height);
+    width: 100%;
+    top: 0;
+    left: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    ${themeTransition('background-color', 'border-color')}
+`;
+
+const LeftPart = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 0.75rem;
+`;
+
+const Ul = styled.ul`
+    display: flex;
+    width: 38rem;
+    justify-content: space-between;
+    margin: 0 0 0 3rem;
+    list-style: none;
+    font-weight: 500;
+
+    a {
+        padding: 2px 4px;
+        color: var(--color-text);
+        &:hover {
+            background-color: var(--color-text);
+            color: var(--color-light);
+        }
+    }
+`;
+
+const styles = {
+    faviconLink: css`
+        &:hover {
+            background: none;
+        }
+    `,
 };
 
 export default Header;

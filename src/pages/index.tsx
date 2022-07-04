@@ -8,10 +8,14 @@ import ExperiencesSection from '../components/sections/ExperiencesSection';
 import DegreeSection from '../components/sections/DegreeSection';
 import PersonalitySection from '../components/sections/PersonalitySection';
 import Footer from '../components/Footer';
+import globalStyles from '../globalStyles';
+import { Global } from '@emotion/react';
+import StateProvider from '../components/StateProvider';
 
 const Home: FC = () => {
     return (
-        <>
+        <StateProvider>
+            <Global styles={globalStyles} />
             <Helmet>
                 <meta charSet='utf-8' />
                 <title>Accueil - Florian Alù</title>
@@ -19,13 +23,12 @@ const Home: FC = () => {
             <Header />
             <SemiHeaderSpace />
             <HomeSection />
-
             <SkillsSection />
             <ExperiencesSection />
             <DegreeSection />
             <PersonalitySection />
             <Footer />
-        </>
+        </StateProvider>
     );
 };
 

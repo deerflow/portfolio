@@ -1,15 +1,11 @@
 import React, { FC } from 'react';
 import { FlexRow } from './layout/Flex';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 const EventList: FC<{ events: IEvent[] }> = ({ events }) => {
     return (
-        <div
-            css={css`
-                font-family: 'IBM Plex Sans', sans-serif;
-                font-size: 1.25rem;
-            `}
-        >
+        <Root>
             {events.map(({ time, title, organization, organizationHref, place, description }, index) => (
                 <FlexRow
                     justifyContent='space-evenly'
@@ -23,30 +19,9 @@ const EventList: FC<{ events: IEvent[] }> = ({ events }) => {
                     }
                     key={`${title} - ${time}`}
                 >
-                    <time
-                        css={css`
-                            flex-basis: 17rem;
-                            display: block;
-                            text-align: right;
-                            margin: 0 2rem;
-                        `}
-                    >
-                        {time}
-                    </time>
-                    <div
-                        css={css`
-                            flex-basis: 50%;
-                        `}
-                    >
-                        <h4
-                            css={css`
-                                font-family: inherit;
-                                margin: 0;
-                                font-weight: 600;
-                            `}
-                        >
-                            {title}
-                        </h4>
+                    <Time>{time}</Time>
+                    <Body>
+                        <Title>{title}</Title>
                         <p>
                             {organizationHref ? (
                                 <a href={organizationHref}>{organization}</a>
@@ -55,21 +30,39 @@ const EventList: FC<{ events: IEvent[] }> = ({ events }) => {
                             )}
                             , {place}
                         </p>
-                        {description && (
-                            <p
-                                css={css`
-                                    margin-top: 1.25rem;
-                                `}
-                            >
-                                {description}
-                            </p>
-                        )}
-                    </div>
+                        {description && <Description>{description}</Description>}
+                    </Body>
                 </FlexRow>
             ))}
-        </div>
+        </Root>
     );
 };
+
+const Root = styled.div`
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.25rem;
+`;
+
+const Time = styled.time`
+    flex-basis: 17rem;
+    display: block;
+    text-align: right;
+    margin: 0 2rem;
+`;
+
+const Body = styled.div`
+    flex-basis: 50%;
+`;
+
+const Title = styled.h4`
+    font-family: inherit;
+    margin: 0;
+    font-weight: 600;
+`;
+
+const Description = styled.p`
+    margin-top: 1.25rem;
+`;
 
 export interface IEvent {
     time: string;

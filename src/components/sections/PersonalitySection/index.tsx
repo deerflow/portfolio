@@ -4,26 +4,10 @@ import { css } from '@emotion/react';
 
 const PersonalitySection: FC = () => {
     return (
-        <Section
-            dotted
-            backgroundColor='primary'
-            borders='all-but-bottom'
-            padding
-            style={css`
-                font-family: 'IBM Plex Mono', monospace;
-                font-size: 1.25rem;
-            `}
-        >
+        <Section dotted backgroundColor='primary' borders='all-but-bottom' padding style={styles.section}>
             <h2>Personnalité</h2>
             <p>Ce que j'apporterai à votre entreprise :</p>
-            <ul
-                css={css`
-                    list-style: none;
-                    li::before {
-                        content: '- ';
-                    }
-                `}
-            >
+            <ul>
                 <li>
                     <em>Clarté</em> et <em>vivacité d'esprit</em>
                 </li>
@@ -45,6 +29,19 @@ const PersonalitySection: FC = () => {
             </ul>
         </Section>
     );
+};
+
+const styles = {
+    section: css`
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 1.25rem;
+        ul {
+            list-style: none;
+        }
+        li::before {
+            content: '- ';
+        }
+    `,
 };
 
 export default PersonalitySection;

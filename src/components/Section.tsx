@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Stylable } from '../types/_extendFrom';
 import { css } from '@emotion/react';
 import { FCWithChildren } from '../types/utils';
-import { scrollTransition, themeTransition } from '../modules/Transitions';
 import settings from '../settings';
+import { scrollTransition, themeTransition } from '../modules/Transitions';
+import styled from '@emotion/styled';
 
 const Section: FCWithChildren<Props> = ({
     children,
@@ -15,26 +16,25 @@ const Section: FCWithChildren<Props> = ({
     stripped,
     stripOrientation,
 }) => {
-    return (
-        <section
-            css={css`
-                background-color: var(--color-${backgroundColor});
-                ${themeTransition('background-color', 'border-color')}
-                ${scrollTransition('height', 'margin')}
+    const Section = useMemo(
+        () => styled.section`
+            background-color: var(--color-${backgroundColor});
+            ${themeTransition('background-color', 'border-color')}
+            ${scrollTransition('height', 'margin')}
                 ${dotted ? dottedBackgroundStyle : ''}
-                ${borders ? bindBordersToStyle(borders) : ''}
+                ${borders ? bindBordersToStyle[borders] : ''}
                 ${stripped ? strippedBackgroundStyle(stripOrientation) : ''}
                 ${padding
-                    ? css`
-                          padding: 3rem 2.875rem;
-                      `
-                    : ''}
+                ? css`
+                      padding: 3rem 2.875rem;
+                  `
+                : ''}
                 ${style}
-            `}
-        >
-            {children}
-        </section>
+        `,
+        []
     );
+
+    return <Section>{children}</Section>;
 };
 
 const { dotSize, spaceSize } = settings.dottedBackground;
@@ -59,18 +59,14 @@ const strippedBackgroundStyle = (stripOrientation: string = '45deg') => css`
     );
 `;
 
-const bindBordersToStyle = (borders: Props['borders']) => {
-    switch (borders) {
-        case 'all':
-            return css`
-                border: 2px solid var(--color-dark);
-            `;
-        case 'all-but-bottom':
-            return css`
-                border: 2px solid var(--color-dark);
-                border-bottom: none;
-            `;
-    }
+const bindBordersToStyle = {
+    all: css`
+        border: 2px solid var(--color-dark);
+    `,
+    'all-but-bottom': css`
+        border: 2px solid var(--color-dark);
+        border-bottom: none;
+    `,
 };
 
 interface Props extends Stylable {

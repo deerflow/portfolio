@@ -10,17 +10,17 @@ const SkillCategory: FC<Props> = ({ title, lists, style }) => {
             <h3>{title}</h3>
             <FlexRow>
                 {lists.map((list, index) => (
-                    <SkillList
-                        key={index}
-                        skills={list}
-                        style={css`
-                            width: 50%;
-                        `}
-                    />
+                    <SkillList key={index} skills={list} style={styles.skillList} />
                 ))}
             </FlexRow>
         </div>
     );
+};
+
+const styles = {
+    skillList: css`
+        width: 50%;
+    `,
 };
 
 interface Props extends Stylable {

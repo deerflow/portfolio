@@ -52,26 +52,10 @@ const skillsLists = {
 
 const SkillsSection: FC = () => {
     return (
-        <Section
-            backgroundColor='secondary'
-            padding
-            style={css`
-                position: relative;
-                html[data-scrolled='true'] & {
-                    bottom: 2px;
-                }
-            `}
-            borders='all-but-bottom'
-            stripped
-        >
+        <Section backgroundColor='secondary' padding style={styles.section} borders='all-but-bottom' stripped>
             <h2>Compétences</h2>
             <FlexRow wrap>
-                <FlexColumn
-                    basis='calc(50% - 1rem)'
-                    style={css`
-                        margin-right: 2rem;
-                    `}
-                >
+                <FlexColumn basis='calc(50% - 1rem)' style={styles.firstColumn}>
                     <SkillCategory title='Technologies' lists={skillsLists.technologies} />
                 </FlexColumn>
                 <FlexColumn basis='calc(50% - 1rem)' justifyContent='space-between'>
@@ -81,6 +65,18 @@ const SkillsSection: FC = () => {
             </FlexRow>
         </Section>
     );
+};
+
+const styles = {
+    section: css`
+        position: relative;
+        html[data-scrolled='true'] & {
+            bottom: 2px;
+        }
+    `,
+    firstColumn: css`
+        margin-right: 2rem;
+    `,
 };
 
 export default SkillsSection;

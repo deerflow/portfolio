@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useMemo } from 'react';
 import { FCWithChildren } from '../../types/utils';
 import { css, SerializedStyles } from '@emotion/react';
 
@@ -13,23 +13,22 @@ export const Flex: FCWithChildren<FlexProps> = ({
     basis,
     style,
 }) => {
-    return (
-        <div
-            css={css`
-                display: flex;
-                ${direction ? `flex-direction: ${direction}` : ''};
-                ${justifyContent ? `justify-content: ${justifyContent}` : ''};
-                ${alignItems ? `align-items: ${alignItems}` : ''};
-                ${wrap ? `flex-wrap: wrap` : ''};
-                ${grow ? `flex-grow: ${grow}` : ''};
-                ${shrink ? `flex-shrink: ${shrink}` : ''};
-                ${basis ? `flex-basis: ${basis}` : ''};
-                ${style ? style : ''}
-            `}
-        >
-            {children}
-        </div>
+    const computedStyle = useMemo(
+        () => css`
+            display: flex;
+            ${direction ? `flex-direction: ${direction}` : ''};
+            ${justifyContent ? `justify-content: ${justifyContent}` : ''};
+            ${alignItems ? `align-items: ${alignItems}` : ''};
+            ${wrap ? `flex-wrap: wrap` : ''};
+            ${grow ? `flex-grow: ${grow}` : ''};
+            ${shrink ? `flex-shrink: ${shrink}` : ''};
+            ${basis ? `flex-basis: ${basis}` : ''};
+            ${style ? style : ''}
+        `,
+        [direction, justifyContent, alignItems, wrap, grow, shrink, basis, style]
     );
+
+    return <div css={computedStyle}>{children}</div>;
 };
 
 export const FlexRow: FCWithChildren<BaseProps> = ({ children, ...props }) => <Flex {...props}>{children}</Flex>;

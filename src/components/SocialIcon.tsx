@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/react';
-import { Link } from 'gatsby';
 import { Stylable } from '../types/_extendFrom';
 
 const SocialIcon: FC<Props> = ({ icon, href, style }) => {
     return (
-        <Link to={href} css={style}>
+        <a href={href} css={style}>
             {svgs[icon]}
-        </Link>
+        </a>
     );
 };
 

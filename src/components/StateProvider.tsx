@@ -1,27 +1,45 @@
-import React, { createContext, Dispatch, SetStateAction, useState } from 'react';
-import { FCWithChildren } from '../types/utils';
+import React, { createContext, useEffect, useState } from 'react';
+import { FCWithChildren, SetState } from '../types/utils';
 import useScrollTransition from '../hooks/useScrollTransition';
 
 export const StateContext = createContext<{
     theme: AppearanceTheme;
-    setTheme: Dispatch<SetStateAction<AppearanceTheme>>;
-    hydrated: boolean;
-    setHydrated: Dispatch<SetStateAction<boolean>>;
+    setTheme: SetState<AppearanceTheme>;
+    isThemeHydrated: boolean;
+    setIsThemeHydrated: SetState<boolean>;
+    isScrollHydrated: boolean;
+    setIsScrollHydrated: SetState<boolean>;
 }>({
     theme: null,
     setTheme: () => {},
-    hydrated: false,
-    setHydrated: () => {},
+    isThemeHydrated: false,
+    setIsThemeHydrated: () => {},
+    isScrollHydrated: false,
+    setIsScrollHydrated: () => {},
 });
 
 const StateProvider: FCWithChildren = ({ children }) => {
-    useScrollTransition();
     const [theme, setTheme] = useState(
         typeof window !== 'undefined' ? (localStorage.getItem('theme') as AppearanceTheme) : null
     );
-    const [hydrated, setHydrated] = useState(false);
+    const [isThemeHydrated, setIsThemeHydrated] = useState(false);
+    const [isScrollHydrated, setIsScrollHydrated] = useState(false);
 
-    return <StateContext.Provider value={{ theme, setTheme, hydrated, setHydrated }}>{children}</StateContext.Provider>;
+    useScrollTransition({ setIsScrollHydrated });
+
+    useEffect(() => {
+        if (isThemeHydrated && isScrollHydrated) {
+            document.documentElement.setAttribute('data-hydrated', '');
+        }
+    }, [isThemeHydrated, isScrollHydrated]);
+
+    return (
+        <StateContext.Provider
+            value={{ theme, setTheme, isThemeHydrated, setIsThemeHydrated, isScrollHydrated, setIsScrollHydrated }}
+        >
+            {children}
+        </StateContext.Provider>
+    );
 };
 
 type AppearanceTheme = null | 'light' | 'dark';

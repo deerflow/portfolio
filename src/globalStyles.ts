@@ -52,6 +52,10 @@ const globalStyles = css`
         ${lightColors};
     }
 
+    html:not([data-hydrated]) * {
+        transition: none !important;
+    }
+
     body {
         font-family: 'IBM Plex Sans', 'system-ui', sans-serif;
         color: var(--color-text);
@@ -65,7 +69,7 @@ const globalStyles = css`
         ${darkColors};
     }
 
-    html[data-scrolled='true'] {
+    html[data-scrolled] {
         --dimension-initial-padding: 0rem;
     }
 

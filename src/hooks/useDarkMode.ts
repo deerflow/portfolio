@@ -5,7 +5,7 @@ import settings from '../settings';
 const MATCH_DARK = '(prefers-color-scheme: dark)';
 
 const useDarkMode = () => {
-    const { theme, setTheme, hydrated, setHydrated } = useContext(StateContext);
+    const { theme, setTheme, isThemeHydrated, setIsThemeHydrated } = useContext(StateContext);
     const [isMediaDark, setIsMediaDark] = useState(
         (typeof window !== 'undefined' && window.matchMedia(MATCH_DARK)?.matches) || false
     );
@@ -26,7 +26,7 @@ const useDarkMode = () => {
             document.documentElement.removeAttribute('data-theme');
             localStorage.removeItem('theme');
         } else {
-            hydrated && document.documentElement.setAttribute('data-theme-transition', 'true');
+            isThemeHydrated && document.documentElement.setAttribute('data-theme-transition', '');
             clearTimeout(transitionTimeout.current);
             changeTheme(theme);
             transitionTimeout.current = setTimeout(
@@ -34,7 +34,7 @@ const useDarkMode = () => {
                 settings.themeTransitionDuration
             ) as unknown as number;
         }
-        if (!hydrated) setHydrated(true);
+        if (!isThemeHydrated) setIsThemeHydrated(true);
     }, [theme]);
 
     return { theme: theme ?? (isMediaDark ? 'dark' : 'light'), setTheme };

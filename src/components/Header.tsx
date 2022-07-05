@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { css } from '@emotion/react';
 import { Link } from 'gatsby';
 import SwitchThemeButton from './SwitchThemeButton';
-import { scrollTransition, themeTransition } from '../modules/Transitions';
 import FavIcon from './icons/FavIcon';
 import styled from '@emotion/styled';
+import settings from '../settings';
 
 const Header: FC = () => {
     return (
@@ -41,15 +41,14 @@ const Root = styled.div`
     position: fixed;
     width: calc(100% - var(--dimension-initial-padding) * 2);
     margin: 0 0 var(--dimension-initial-padding) 0;
-    ${scrollTransition('margin', 'width')}
-    z-index: 1
+    transition: margin ${settings.scrollTransitionDuration}ms, width ${settings.scrollTransitionDuration}ms;
+    z-index: 1;
 `;
 
 const BackgroundHider = styled.div`
     height: var(--dimension-initial-padding);
-    ${scrollTransition('height')}
     background-color: var(--color-accent);
-    ${themeTransition('background-color')}
+    transition: height ${settings.scrollTransitionDuration}ms, background-color ${settings.themeTransitionDuration}ms;
 `;
 
 const HeaderTag = styled.header`
@@ -64,7 +63,8 @@ const HeaderTag = styled.header`
     top: 0;
     left: 0;
     font-family: 'IBM Plex Mono', monospace;
-    ${themeTransition('background-color', 'border-color')}
+    transition: height ${settings.scrollTransitionDuration}ms, background-color ${settings.themeTransitionDuration}ms,
+        border-color ${settings.themeTransitionDuration}ms;
 `;
 
 const LeftPart = styled.div`

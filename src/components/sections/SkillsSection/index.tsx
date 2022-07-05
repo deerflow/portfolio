@@ -19,6 +19,7 @@ import webStormIcon from '../../../assets/svg/webstorm.svg';
 import gitHubIcon from '../../../assets/svg/github.svg';
 import figmaIcon from '../../../assets/svg/figma.svg';
 import SkillCategory from './SkillCategory';
+import { scrollTransition } from '../../../modules/Transitions';
 
 const skillsLists = {
     technologies: [
@@ -70,9 +71,10 @@ const SkillsSection: FC = () => {
 const styles = {
     section: css`
         position: relative;
-        html[data-scrolled='true'] & {
-            bottom: 2px;
+        html[data-scrolled] & {
+            margin-top: -2px;
         }
+        ${scrollTransition('margin')}
     `,
     firstColumn: css`
         margin-right: 2rem;

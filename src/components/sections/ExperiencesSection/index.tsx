@@ -33,7 +33,7 @@ const experiences: IEvent[] = [
 
 const ExperiencesSection: FC = () => {
     return (
-        <Section borders='all-but-bottom' backgroundColor='primary' padding dotted>
+        <Section borders='all-but-bottom' backgroundColor='secondary' padding stripped stripOrientation='-45deg'>
             <h2>Expériences</h2>
             <EventList events={experiences} />
         </Section>

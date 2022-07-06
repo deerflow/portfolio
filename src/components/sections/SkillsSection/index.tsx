@@ -53,7 +53,7 @@ const skillsLists = {
 
 const SkillsSection: FC = () => {
     return (
-        <Section backgroundColor='secondary' padding style={styles.section} borders='all-but-bottom' stripped>
+        <Section backgroundColor='primary' padding style={styles.section} borders='all-but-bottom' dotted>
             <h2>Compétences</h2>
             <FlexRow wrap>
                 <FlexColumn basis='calc(50% - 1rem)' style={styles.firstColumn}>

@@ -11,6 +11,7 @@ import Footer from '../components/Footer';
 import globalStyles from '../globalStyles';
 import { Global } from '@emotion/react';
 import StateProvider from '../components/StateProvider';
+import PresentationSection from '../components/sections/PresentationSection';
 
 const Home: FC = () => {
     return (
@@ -23,6 +24,7 @@ const Home: FC = () => {
             <Header />
             <SemiHeaderSpace />
             <HomeSection />
+            <PresentationSection />
             <SkillsSection />
             <ExperiencesSection />
             <DegreeSection />

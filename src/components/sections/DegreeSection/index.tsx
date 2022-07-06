@@ -21,7 +21,7 @@ const degrees: IEvent[] = [
 
 const DegreeSection: FC = () => {
     return (
-        <Section borders='all-but-bottom' backgroundColor='secondary' padding stripped stripOrientation='-45deg'>
+        <Section borders='all-but-bottom' backgroundColor='primary' padding dotted>
             <h2>Diplômes et formations</h2>
             <EventList events={degrees} />
         </Section>

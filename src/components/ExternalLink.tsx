@@ -2,7 +2,7 @@ import React from 'react';
 import { FCWithChildren } from '../types/utils';
 import { Stylable } from '../types/_extendFrom';
 
-const Anchor: FCWithChildren<Props> = ({ children, style, href, target = '_blank' }) => {
+const ExternalLink: FCWithChildren<Props> = ({ children, style, href, target = '_blank' }) => {
     return (
         <a href={href} target={target} css={style}>
             {children}
@@ -15,4 +15,4 @@ interface Props extends Stylable {
     target?: '_self' | '_blank' | '_parent' | '_top';
 }
 
-export default Anchor;
+export default ExternalLink;

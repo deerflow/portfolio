@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/react';
 import { Stylable } from '../types/_extendFrom';
-import Anchor from './Anchor';
+import ExternalLink from './ExternalLink';
 
 const SocialIcon: FC<Props> = ({ icon, href, style }) => {
     return (
-        <Anchor href={href} style={style}>
+        <ExternalLink href={href} style={style}>
             {svgs[icon]}
-        </Anchor>
+        </ExternalLink>
     );
 };
 

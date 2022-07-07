@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { FlexRow } from './layout/Flex';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import Anchor from './Anchor';
+import ExternalLink from './ExternalLink';
 
 const EventList: FC<{ events: IEvent[] }> = ({ events }) => {
     return (
@@ -25,7 +25,7 @@ const EventList: FC<{ events: IEvent[] }> = ({ events }) => {
                         <Title>{title}</Title>
                         <p>
                             {organizationHref ? (
-                                <Anchor href={organizationHref}>{organization}</Anchor>
+                                <ExternalLink href={organizationHref}>{organization}</ExternalLink>
                             ) : (
                                 <span>{organization}</span>
                             )}

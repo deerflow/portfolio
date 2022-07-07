@@ -47,6 +47,7 @@ const globalStyles = css`
     }
 
     html {
+        scroll-behavior: smooth;
         ${dimensions};
         ${staticColors};
         ${lightColors};

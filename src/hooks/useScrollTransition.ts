@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import settings from '../settings';
 import { SetState } from '../types/utils';
 
-const onScroll = () => {
+const toggleAttributeJustScrolled = () => {
     if (window.scrollY > 10) document.documentElement.setAttribute('data-scrolled', '');
     else document.documentElement.removeAttribute('data-scrolled');
 };
@@ -11,10 +11,10 @@ const useScrollTransition = ({ setIsScrollHydrated }: UseScrollTransitionOptions
     const transitionTimeout = useRef<number>(0);
 
     useEffect(() => {
-        onScroll();
-        window.addEventListener('scroll', () => {
+        toggleAttributeJustScrolled();
+        window.addEventListener('scroll', e => {
             document.documentElement.setAttribute('data-just-scrolled', '');
-            onScroll();
+            toggleAttributeJustScrolled();
             clearTimeout(transitionTimeout.current);
             transitionTimeout.current = setTimeout(
                 () => document.documentElement.removeAttribute('data-just-scrolled'),

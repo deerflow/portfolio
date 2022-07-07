@@ -12,8 +12,9 @@ import globalStyles from '../globalStyles';
 import { Global } from '@emotion/react';
 import StateProvider from '../components/StateProvider';
 import PresentationSection from '../components/sections/PresentationSection';
+import { PageProps } from 'gatsby';
 
-const Home: FC = () => {
+const Home: FC<PageProps> = ({ location }) => {
     return (
         <StateProvider>
             <Global styles={globalStyles} />
@@ -21,7 +22,7 @@ const Home: FC = () => {
                 <meta charSet='utf-8' />
                 <title>Accueil - Florian Alù</title>
             </Helmet>
-            <Header />
+            <Header location={location} />
             <SemiHeaderSpace />
             <HomeSection />
             <PresentationSection />

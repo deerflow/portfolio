@@ -1,33 +1,51 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/react';
-import { Link } from 'gatsby';
+import { Link, PageProps } from 'gatsby';
 import SwitchThemeButton from './SwitchThemeButton';
 import FavIcon from './icons/FavIcon';
 import styled from '@emotion/styled';
 import settings from '../settings';
+import HeaderLink from './HeaderLink';
 
-const Header: FC = () => {
+const Header: FC<Props> = ({ location }) => {
     return (
         <Root>
             <BackgroundHider />
             <HeaderTag>
                 <LeftPart>
-                    <Link to='/' css={styles.faviconLink}>
+                    <HeaderLink
+                        to='/'
+                        style={styles.faviconLink}
+                        isCurrentRoute={location.pathname === '/'}
+                        onCurrentPageLinkClick={handleRootLinkClick}
+                    >
                         <FavIcon />
-                    </Link>
+                    </HeaderLink>
 
                     <Ul>
                         <li>
-                            <Link to='/'>Accueil</Link>
+                            <HeaderLink
+                                to='/'
+                                isCurrentRoute={location.pathname === '/'}
+                                onCurrentPageLinkClick={handleRootLinkClick}
+                            >
+                                Accueil
+                            </HeaderLink>
                         </li>
                         <li>
-                            <Link to='#cv'>Curriculum Vitae</Link>
+                            <Link to='#cv' css={styles.cvLink}>
+                                Curriculum Vitae
+                            </Link>
                         </li>
                         <li>
-                            <Link to='/portfolio'>Portfolio</Link>
+                            <HeaderLink to='/portfolio' isCurrentRoute={location.pathname === '/portfolio'}>
+                                Portfolio
+                            </HeaderLink>
                         </li>
                         <li>
-                            <Link to='/contact'>Contact</Link>
+                            <HeaderLink to='/contact' isCurrentRoute={location.pathname === '/contact'}>
+                                Contact
+                            </HeaderLink>
                         </li>
                     </Ul>
                 </LeftPart>
@@ -91,12 +109,25 @@ const Ul = styled.ul`
     }
 `;
 
+const handleRootLinkClick = () => {
+    if (location.pathname === '/' && location.hash !== '') {
+        history.pushState({}, '', '/');
+    }
+};
+
 const styles = {
     faviconLink: css`
         &:hover {
             background: none;
         }
     `,
+    cvLink: css`
+        scroll-behavior: smooth;
+    `,
 };
+
+interface Props {
+    location: PageProps['location'];
+}
 
 export default Header;

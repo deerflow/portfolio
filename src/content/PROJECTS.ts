@@ -7,10 +7,15 @@ import list from '../assets/png/rncp/list.png';
 import details from '../assets/png/rncp/details.png';
 import statistics from '../assets/png/rncp/statistics.png';
 
-const PROJECTS: (Project & { screenshotWidth: string })[] = [
+const ORGANIZATIONS = {
+    campusSkills: { name: 'Campus Skills', href: 'https://campus-skills.com' },
+    personal: { name: 'Projet personnel', href: 'https://florianalu.net' },
+};
+
+const PROJECTS: (Project & { screenshotWidth?: string })[] = [
     {
         title: 'Application hybride iOS, Android et PWA',
-        organization: { name: 'Campus Skills', href: 'https://campus-skills.com' },
+        organization: ORGANIZATIONS.campusSkills,
         description: "Développement de la version mobile de l'application web Campus Skills déjà existante",
         technologies: ['React Native', 'Expo', 'TypeScript'],
         screenshots: [
@@ -23,7 +28,7 @@ const PROJECTS: (Project & { screenshotWidth: string })[] = [
     },
     {
         title: "Scraper de titres RNCP et interface d'édition avec tableur",
-        organization: { name: 'Campus Skills', href: 'https://campus-skills.com' },
+        organization: ORGANIZATIONS.campusSkills,
         description:
             "Développement d'un scraper de titres RNCP (Référentiel National de Certifications Professionnelles)",
         technologies: ['Go', 'React', 'Next.js', 'TypeScript', 'MongoDB', 'Docker', 'Algolia'],
@@ -33,6 +38,18 @@ const PROJECTS: (Project & { screenshotWidth: string })[] = [
             { href: statistics, alt: 'Vue des statistiques' },
         ],
         screenshotWidth: '24rem',
+    },
+    {
+        title: "Ajout de fonctionnalités à l'api Campus Skills",
+        organization: ORGANIZATIONS.campusSkills,
+        description: "Ajout de fonctionnalité à l'api Campus Skills",
+        technologies: ['Node.js', 'Meteor', 'TypeScript', 'MongoDB'],
+    },
+    {
+        title: 'Ce site portfolio',
+        organization: ORGANIZATIONS.personal,
+        description: 'Développement et design de ce site portfolio',
+        technologies: ['React', 'Gatsby', 'TypeScript'],
     },
 ];
 

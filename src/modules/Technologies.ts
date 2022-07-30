@@ -5,6 +5,9 @@ import nextIcon from '../assets/svg/nextjs.svg';
 import expoIcon from '../assets/svg/expo.svg';
 import goIcon from '../assets/svg/go.svg';
 import meteorIcon from '../assets/svg/meteor.svg';
+import mongoDbIcon from '../assets/svg/mongodb.svg';
+import algoliaIcon from '../assets/svg/algolia.svg';
+import dockerIcon from '../assets/svg/docker.svg';
 
 const Technologies = {
     React: reactIcon,
@@ -15,6 +18,9 @@ const Technologies = {
     'Next.js': nextIcon,
     Meteor: meteorIcon,
     Expo: expoIcon,
+    MongoDB: mongoDbIcon,
+    Algolia: algoliaIcon,
+    Docker: dockerIcon,
 };
 
 export default Technologies;

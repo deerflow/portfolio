@@ -4,18 +4,24 @@ import GlobalLayout from '../components/GlobalLayout';
 import styled from '@emotion/styled';
 import PROJECTS from '../content/PROJECTS';
 import Project from '../components/Project';
+import StateProvider from '../components/StateProvider';
+import Section from '../components/Section';
 
 const Portfolio: FC<PageProps> = ({ location }) => {
     return (
-        <GlobalLayout location={location} title='Portfolio - Florian Alù'>
-            <HeaderSpace />
-            <Heading1>Portfolio</Heading1>
-            <div>
-                {PROJECTS.map(project => (
-                    <Project {...project} />
-                ))}
-            </div>
-        </GlobalLayout>
+        <StateProvider>
+            <GlobalLayout location={location} title='Portfolio - Florian Alù'>
+                <HeaderSpace />
+                <Section backgroundColor='primary' borders='all-but-bottom' padding dotted>
+                    <Heading1>Portfolio</Heading1>
+                    <div>
+                        {PROJECTS.map((project, index) => (
+                            <Project {...project} horizontalRule={index !== PROJECTS.length - 1} />
+                        ))}
+                    </div>
+                </Section>
+            </GlobalLayout>
+        </StateProvider>
     );
 };
 
@@ -24,7 +30,7 @@ const HeaderSpace = styled.div`
 `;
 
 const Heading1 = styled.h1`
-    margin-bottom: 1.5rem;
+    margin: 0.75rem 0 1.5rem 0;
 `;
 
 export default Portfolio;

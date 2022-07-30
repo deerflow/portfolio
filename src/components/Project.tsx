@@ -2,8 +2,18 @@ import React, { FC } from 'react';
 import { Project as IProject } from '../types/api';
 import Technologies from '../modules/Technologies';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import settings from '../settings';
 
-const Project: FC<Props> = ({ title, organization, description, technologies, screenshots, screenshotWidth }) => {
+const Project: FC<Props> = ({
+    title,
+    organization,
+    description,
+    technologies,
+    screenshots,
+    screenshotWidth,
+    horizontalRule,
+}) => {
     return (
         <Root>
             <Title>{title}</Title>
@@ -24,17 +34,28 @@ const Project: FC<Props> = ({ title, organization, description, technologies, sc
                             src={screenshot.href}
                             key={screenshot.href}
                             alt={screenshot.alt}
-                            style={{ width: screenshotWidth }}
+                            css={{ width: screenshotWidth }}
                         />
                     ))}
                 </div>
+            )}
+            {horizontalRule && (
+                <hr
+                    css={css`
+                        margin-top: 1.3rem;
+                        height: 0;
+                        border-width: 2px 0 0 0;
+                        border-color: var(--color-accent);
+                        transition: border-color ${settings.themeTransitionDuration}ms;
+                    `}
+                />
             )}
         </Root>
     );
 };
 
 const Root = styled.article`
-    margin: 1rem 0 2rem 0;
+    margin: 1rem 0 1rem 0;
 `;
 
 const Title = styled.h2`
@@ -68,6 +89,7 @@ const Screenshot = styled.img`
 
 interface Props extends IProject {
     screenshotWidth?: string;
+    horizontalRule?: boolean;
 }
 
 export default Project;

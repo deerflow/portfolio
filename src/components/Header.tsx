@@ -33,7 +33,7 @@ const Header: FC<Props> = ({ location }) => {
                             </HeaderLink>
                         </li>
                         <li>
-                            <Link to='#cv' css={styles.cvLink}>
+                            <Link to='/#cv' css={styles.cvLink}>
                                 Curriculum Vitae
                             </Link>
                         </li>

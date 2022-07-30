@@ -8,6 +8,7 @@ import meteorIcon from '../assets/svg/meteor.svg';
 import mongoDbIcon from '../assets/svg/mongodb.svg';
 import algoliaIcon from '../assets/svg/algolia.svg';
 import dockerIcon from '../assets/svg/docker.svg';
+import gatsbyIcon from '../assets/svg/gatsby.svg';
 
 const Technologies = {
     React: reactIcon,
@@ -21,6 +22,7 @@ const Technologies = {
     MongoDB: mongoDbIcon,
     Algolia: algoliaIcon,
     Docker: dockerIcon,
+    Gatsby: gatsbyIcon,
 };
 
 export default Technologies;

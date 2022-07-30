@@ -9,7 +9,7 @@ const Portfolio: FC<PageProps> = ({ location }) => {
     return (
         <GlobalLayout location={location} title='Portfolio - Florian Alù'>
             <HeaderSpace />
-            <h1>Portfolio</h1>
+            <Heading1>Portfolio</Heading1>
             <div>
                 {PROJECTS.map(project => (
                     <Project {...project} />
@@ -21,6 +21,10 @@ const Portfolio: FC<PageProps> = ({ location }) => {
 
 const HeaderSpace = styled.div`
     height: var(--dimension-header-height);
+`;
+
+const Heading1 = styled.h1`
+    margin-bottom: 1.5rem;
 `;
 
 export default Portfolio;

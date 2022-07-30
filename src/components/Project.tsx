@@ -3,12 +3,12 @@ import { Project as IProject } from '../types/api';
 import Technologies from '../modules/Technologies';
 import styled from '@emotion/styled';
 
-const Project: FC<Props> = ({ title, organization, description, technologies, screenshots }) => {
+const Project: FC<Props> = ({ title, organization, description, technologies, screenshots, screenshotWidth }) => {
     return (
         <Root>
             <Title>{title}</Title>
             {organization.href ? <a href={organization.href}>{organization.name}</a> : <p>{organization.name}</p>}
-            <p>{description}</p>
+            <Description>{description}</Description>
             <TechnologyList>
                 {technologies.map(technology => (
                     <li>
@@ -20,7 +20,12 @@ const Project: FC<Props> = ({ title, organization, description, technologies, sc
             {screenshots && (
                 <div>
                     {screenshots.map(screenshot => (
-                        <img src={screenshot.href} key={screenshot.href} alt={screenshot.alt} />
+                        <Screenshot
+                            src={screenshot.href}
+                            key={screenshot.href}
+                            alt={screenshot.alt}
+                            style={{ width: screenshotWidth }}
+                        />
                     ))}
                 </div>
             )}
@@ -29,7 +34,7 @@ const Project: FC<Props> = ({ title, organization, description, technologies, sc
 };
 
 const Root = styled.article`
-    margin: 1rem 0;
+    margin: 1rem 0 2rem 0;
 `;
 
 const Title = styled.h2`
@@ -39,10 +44,14 @@ const Title = styled.h2`
     font-weight: 600;
 `;
 
+const Description = styled.p`
+    margin-top: 0.5rem;
+`;
+
 const TechnologyList = styled.ul`
     list-style-type: none;
     display: flex;
-    margin-top: 1rem;
+    margin: 0.75rem 0;
     & li {
         display: flex;
         align-items: center;
@@ -53,6 +62,12 @@ const TechnologyList = styled.ul`
     }
 `;
 
-interface Props extends IProject {}
+const Screenshot = styled.img`
+    margin-right: 0.5rem;
+`;
+
+interface Props extends IProject {
+    screenshotWidth?: string;
+}
 
 export default Project;

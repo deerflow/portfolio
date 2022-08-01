@@ -26,8 +26,7 @@ const PresentationSection: FC = () => {
                     <br />
                     <p>
                         Mon alternance s'est terminée en avril et je suis donc{' '}
-                        <em>à l'écoute d'opportunités professionnelles</em> soit dans la région lyonnaise soit en
-                        télétravail.
+                        <em>à l'écoute d'opportunités professionnelles</em> dans la région grenobloise.
                     </p>
                 </article>
             </Section>

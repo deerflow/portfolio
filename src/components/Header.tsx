@@ -19,7 +19,7 @@ const Header: FC<Props> = ({ location }) => {
                         isCurrentRoute={location.pathname === '/'}
                         onCurrentPageLinkClick={handleRootLinkClick}
                     >
-                        <FavIcon />
+                        <FavIcon style={styles.favicon} />
                     </HeaderLink>
 
                     <Ul>
@@ -83,12 +83,32 @@ const HeaderTag = styled.header`
     font-family: 'IBM Plex Mono', monospace;
     transition: height ${settings.scrollTransitionDuration}ms, background-color ${settings.themeTransitionDuration}ms,
         border-color ${settings.themeTransitionDuration}ms;
+
+    @media (max-width: 575px) {
+    }
+
+    @media (max-width: 275px) {
+        padding: 0 0.25rem;
+    }
+
+    @media (max-width: 240px) {
+        padding: 0;
+    }
 `;
 
 const LeftPart = styled.div`
     display: flex;
     align-items: center;
     margin-left: 0.75rem;
+
+    @media (max-width: 680px) {
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    @media (max-width: 750px) {
+        width: 100%;
+    }
 `;
 
 const Ul = styled.ul`
@@ -98,6 +118,7 @@ const Ul = styled.ul`
     margin: 0 0 0 3rem;
     list-style: none;
     font-weight: 500;
+    flex-wrap: wrap;
 
     a {
         padding: 2px 4px;
@@ -105,6 +126,37 @@ const Ul = styled.ul`
         &:hover {
             background-color: var(--color-text);
             color: var(--color-light);
+        }
+    }
+
+    @media (max-width: 880px) {
+        font-size: 0.9rem;
+        width: 26rem;
+    }
+
+    @media (max-width: 575px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        li {
+            width: fit-content;
+        }
+    }
+
+    @media (max-width: 680px) {
+        margin: 0;
+    }
+
+    @media (max-width: 367px) {
+        justify-content: space-evenly;
+    }
+
+    @media (max-width: 200px) {
+        font-size: 6vw;
+        a {
+            padding: 0;
         }
     }
 `;
@@ -123,6 +175,11 @@ const styles = {
     `,
     cvLink: css`
         scroll-behavior: smooth;
+    `,
+    favicon: css`
+        @media (max-width: 680px) {
+            display: none;
+        }
     `,
 };
 

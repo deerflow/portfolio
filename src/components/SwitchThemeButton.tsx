@@ -18,7 +18,17 @@ const Button = styled.button`
         box-shadow: -6px 6px 0px var(--color-shadow);
     }
     cursor: pointer;
-    ${themeTransition('background-color', 'border-color')}
+    ${themeTransition('background-color', 'border-color')};
+
+    @media (max-width: 330px) {
+        width: 2rem;
+        height: 2rem;
+        border: 2px solid var(--color-dark);
+    }
+
+    @media (max-width: 240px) {
+        display: none;
+    }
 `;
 
 const SwitchThemeButton: FC = () => {

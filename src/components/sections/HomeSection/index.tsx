@@ -7,16 +7,16 @@ import Section from '../../Section';
 const HomeSection: FC = () => {
     return (
         <Section backgroundColor='primary' style={styles.section} dotted borders='all'>
-            <FlexRow grow={1} style={styles.row}>
-                <FlexColumn basis='50%' justifyContent='space-evenly' style={styles.column}>
-                    <h1>Florian Alù</h1>
+            <FlexRow grow={1} style={styles.row} justifyContent='space-between'>
+                <FlexColumn basis='50%' justifyContent='space-evenly' style={styles.textColumn}>
+                    <h1 css={styles.heading}>Florian Alù</h1>
                     <p css={styles.catchLine}>
                         Bonjour, je m’appelle Florian.
                         <br />
                         Bienvenue sur mon CV/Portfolio.
                     </p>
                 </FlexColumn>
-                <FlexColumn basis='50%' justifyContent='center' alignItems='center'>
+                <FlexColumn basis='50%' justifyContent='center' alignItems='center' style={styles.pictureColumn}>
                     <ProfilePicture />
                 </FlexColumn>
             </FlexRow>
@@ -29,16 +29,42 @@ const styles = {
         height: calc(100vh - (var(--dimension-initial-padding) + var(--dimension-header-height) / 2));
         margin-bottom: var(--dimension-initial-padding);
         padding: 0 2.875rem;
+        @media (max-width: 900px) {
+            padding: 0 1.4375rem;
+        }
     `,
     row: css`
         height: calc(100% - var(--dimension-header-height));
+        @media (max-width: 775px) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
     `,
-    column: css`
-        padding: 4rem 0 4rem 0;
+    heading: css`
+        @media (max-width: 775px) {
+            width: fit-content;
+        }
+        @media (max-width: 620px) {
+            font-size: max(10.3vw, 1.75rem);
+        }
+    `,
+    textColumn: css`
+        padding: 4rem 0;
+    `,
+    pictureColumn: css`
+        @media (max-width: 900px) {
+            align-items: end;
+            flex-basis: fit-content;
+        }
     `,
     catchLine: css`
         font-size: 2.25rem;
         font-family: 'IBM Plex Sans', sans-serif;
+        @media (max-width: 620px) {
+            font-size: max(5.8vw, 1rem);
+            width: fit-content;
+        }
     `,
 };
 

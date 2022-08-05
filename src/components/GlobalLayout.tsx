@@ -11,7 +11,7 @@ const GlobalLayout: FCWithChildren<Props> = ({ location, title, children }) => {
     return (
         <>
             <Global styles={globalStyles} />
-            <Helmet>
+            <Helmet htmlAttributes={{ lang: 'fr' }}>
                 <meta charSet='utf-8' />
                 <title>{title}</title>
             </Helmet>

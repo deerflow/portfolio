@@ -1,4 +1,4 @@
-import Technologies from '../modules/Technologies';
+import { Technologies } from '../modules/Icons';
 
 export interface Project {
     title: string;

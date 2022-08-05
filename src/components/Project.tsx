@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Project as IProject } from '../types/api';
-import Technologies from '../modules/Technologies';
+import { Technologies } from '../modules/Icons';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import settings from '../settings';

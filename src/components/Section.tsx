@@ -25,7 +25,7 @@ const Section: FCWithChildren<Props> = ({
                 ${stripped ? strippedBackgroundStyle(stripOrientation) : ''}
                 ${padding
                 ? css`
-                      padding: 3rem 2.875rem;
+                      padding: 2.875rem;
                   `
                 : ''}
                 ${style};

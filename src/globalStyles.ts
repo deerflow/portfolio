@@ -139,6 +139,25 @@ const globalStyles = css`
         font-style: normal;
         font-weight: 600;
     }
+
+    @media (max-width: 370px) {
+        h2 {
+            font-size: max(13vw, 1.5rem);
+        }
+        h3 {
+            font-size: max(9.7vw, 1.125rem);
+        }
+        p {
+            font-size: max(4.3vw, 0.5rem);
+        }
+    }
+
+    @media (max-width: 200px) {
+        h2,
+        h3 {
+            overflow-wrap: break-word;
+        }
+    }
 `;
 
 export default globalStyles;

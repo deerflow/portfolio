@@ -12,8 +12,8 @@ const PresentationSection: FC = () => {
             <Section backgroundColor='secondary' borders='all-but-bottom' padding style={styles.section} stripped>
                 <article>
                     <p>
-                        Bonjour et bienvenue sur mon CV. Je m'appelle <em>Florian Alù</em>, j'ai 22 ans et suis
-                        fraîchement diplômé de la formation <em>Technicien Développeur Web</em> du{' '}
+                        Bonjour et bienvenue sur mon CV. Je m'appelle <em>Florian Alù</em> et suis fraîchement diplômé
+                        de la formation <em>Technicien Développeur Web</em> du{' '}
                         <ExternalLink href='https://le-campus-numerique.fr/'>Campus Numérique in the Alps</ExternalLink>{' '}
                         à Grenoble (
                         <ExternalLink href='https://le-campus-numerique.fr/formation-developpeur/'>

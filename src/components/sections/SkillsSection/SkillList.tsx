@@ -26,6 +26,7 @@ const styles = {
     li: css`
         display: flex;
         align-items: center;
+        width: 15rem;
     `,
     row: css`
         width: 3rem;
@@ -33,7 +34,7 @@ const styles = {
         min-width: 3rem;
     `,
     p: css`
-        min-width: 12rem;
+        width: fit-content;
     `,
 };
 

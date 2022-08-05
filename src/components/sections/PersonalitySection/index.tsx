@@ -5,9 +5,15 @@ import { themeTransition } from '../../../modules/Transitions';
 
 const PersonalitySection: FC = () => {
     return (
-        <Section backgroundColor='secondary' borders='all-but-bottom' padding style={styles.section} stripped>
+        <Section
+            backgroundColor='secondary'
+            borders='all-but-bottom'
+            padding
+            style={styles.section}
+            stripped
+            stripOrientation='-45deg'
+        >
             <h2>Personnalité</h2>
-            <p>Ce que j'apporterai à votre entreprise :</p>
             <ul>
                 <li>
                     <em>Clarté</em> et <em>vivacité d'esprit</em>

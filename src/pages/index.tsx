@@ -9,6 +9,7 @@ import PresentationSection from '../components/sections/PresentationSection';
 import { PageProps } from 'gatsby';
 import GlobalLayout from '../components/GlobalLayout';
 import styled from '@emotion/styled';
+import HobbiesSection from '../components/sections/HobbiesSection';
 
 const Home: FC<PageProps> = ({ location }) => {
     return (
@@ -18,9 +19,10 @@ const Home: FC<PageProps> = ({ location }) => {
                 <HomeSection />
                 <PresentationSection />
                 <SkillsSection />
+                <PersonalitySection />
                 <ExperiencesSection />
                 <DegreeSection />
-                <PersonalitySection />
+                <HobbiesSection />
             </GlobalLayout>
         </StateProvider>
     );

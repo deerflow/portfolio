@@ -26,6 +26,12 @@ const Section: FCWithChildren<Props> = ({
                 ${padding
                 ? css`
                       padding: 2.875rem;
+                      @media (max-width: 600px) {
+                          padding: 1.5rem;
+                      }
+                      @media (max-width: 250px) {
+                          padding: 0.75rem;
+                      }
                   `
                 : ''}
                 ${style};

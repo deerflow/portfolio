@@ -3,8 +3,8 @@ import { css } from '@emotion/react';
 import { FlexColumn, FlexRow } from '../../layout/Flex';
 import Section from '../../Section';
 import nodeJsIcon from '../../../assets/svg/nodejs.svg';
-import britishIcon from '../../../assets/svg/nodejs.svg';
-import italianIcon from '../../../assets/svg/nodejs.svg';
+import unitedKingdomIcon from '../../../assets/svg/united-kingdom.svg';
+import italyIcon from '../../../assets/svg/italy.svg';
 import typescriptIcon from '../../../assets/svg/typescript.svg';
 import nextJsIcon from '../../../assets/svg/nextjs.svg';
 import dockerIcon from '../../../assets/svg/docker.svg';
@@ -48,7 +48,7 @@ const skillsLists = {
             { title: 'Figma', icon: figmaIcon },
         ],
     ],
-    languages: [[{ title: 'Anglais (B2/C1)', icon: britishIcon }], [{ title: 'Italien (B2)', icon: italianIcon }]],
+    languages: [[{ title: 'Anglais (B2/C1)', icon: unitedKingdomIcon }], [{ title: 'Italien (B2)', icon: italyIcon }]],
 };
 
 const SkillsSection: FC = () => {

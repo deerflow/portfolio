@@ -1,5 +1,5 @@
-import { SerializedStyles } from '@emotion/react';
+import { Interpolation, Theme } from '@emotion/react';
 
 export interface Stylable {
-    style?: SerializedStyles;
+    style?: Interpolation<Theme>;
 }

@@ -22,7 +22,7 @@ const Contact: FC<PageProps> = ({ location }) => {
                 >
                     <Heading1>Contact</Heading1>
                     <Address>
-                        <p>Florian Alù</p>
+                        <Name>Florian Alù</Name>
                         <a href='mailto:alu.florian@gmail.com'>alu.florian@gmail.com</a>
                         <a href='tel:0648937151'>06 48 93 71 51</a>
                         <SocialLink href='https://www.linkedin.com/in/florian-alù/'>
@@ -46,6 +46,12 @@ const HeaderSpace = styled.div`
 
 const Heading1 = styled.h1`
     margin: 0.75rem 0 1.5rem 0;
+    @media (max-width: 370px) {
+        font-size: max(17.3vw, 2rem);
+    }
+    @media (max-width: 210px) {
+        overflow-wrap: break-word;
+    }
 `;
 
 const Address = styled.address`
@@ -54,9 +60,42 @@ const Address = styled.address`
     flex-direction: column;
     justify-content: center;
     font-size: 2rem;
-    line-height: 3.25rem;
     flex-grow: 1;
     margin-bottom: 3rem;
+    & > *:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+    @media (max-width: 420px) {
+        font-size: 1.5rem;
+        svg {
+            width: 1.5rem;
+        }
+        & > *:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+    }
+    @media (max-width: 340px) {
+        font-size: 1rem;
+        svg {
+            width: 1rem;
+        }
+        & > *:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+    @media (max-width: 235px) {
+        overflow-wrap: break-word;
+    }
+`;
+
+const Name = styled.p`
+    // Overwrites global p media query
+    @media (max-width: 370px) {
+        font-size: 1.5rem;
+    }
+    @media (max-width: 340px) {
+        font-size: 1rem;
+    }
 `;
 
 const SocialLink = styled.a`
@@ -64,6 +103,9 @@ const SocialLink = styled.a`
     align-items: center;
     & svg {
         margin-right: 0.25rem;
+        @media (max-width: 160px) {
+            display: none;
+        }
     }
 `;
 

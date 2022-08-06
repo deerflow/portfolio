@@ -32,6 +32,7 @@ const HobbiesSection: FC = () => {
                 <Hobby hobby='Meditation' title='Méditation' />
                 <Hobby hobby='Ski' title='Ski' />
             </List>
+            <ThankParagraph>Merci d'avoir pris le temps de lire mon CV.</ThankParagraph>
         </Section>
     );
 };
@@ -48,6 +49,11 @@ const SubList = styled.ul`
     li {
         ${themeTransition('color')}
     }
+`;
+
+const ThankParagraph = styled.p`
+    margin-top: 2rem;
+    font-size: 1.25rem;
 `;
 
 export default HobbiesSection;

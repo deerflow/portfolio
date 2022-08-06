@@ -8,12 +8,15 @@ const HomeSection: FC = () => {
     return (
         <Section backgroundColor='primary' style={styles.section} dotted borders='all'>
             <FlexRow grow={1} style={styles.row} justifyContent='space-between'>
-                <FlexColumn basis='50%' justifyContent='space-evenly' style={styles.textColumn}>
+                <FlexColumn basis='50%' justifyContent='space-evenly' style={styles.textColumn} alignItems='stretch'>
                     <h1 css={styles.heading}>Florian Alù</h1>
                     <p css={styles.catchLine}>
                         Bonjour, je m’appelle Florian.
                         <br />
                         Bienvenue sur mon CV/Portfolio.
+                    </p>
+                    <p>
+                        Pas le temps de consulter mon site ? <a href='/CV_Florian_ALÙ.pdf'>CV au format PDF</a>
                     </p>
                 </FlexColumn>
                 <FlexColumn basis='50%' justifyContent='center' alignItems='center' style={styles.pictureColumn}>
@@ -28,13 +31,13 @@ const styles = {
     section: css`
         height: calc(100vh - (var(--dimension-initial-padding) + var(--dimension-header-height) / 2));
         margin-bottom: var(--dimension-initial-padding);
-        padding: 0 2.875rem;
+        padding: calc(var(--dimension-header-height) / 2) 2.875rem 0 2.875rem;
         @media (max-width: 900px) {
             padding: 0 1.4375rem;
         }
     `,
     row: css`
-        height: calc(100% - var(--dimension-header-height));
+        height: 100%;
         @media (max-width: 775px) {
             flex-direction: column;
             align-items: center;
@@ -42,6 +45,7 @@ const styles = {
         }
     `,
     heading: css`
+        margin: 0;
         @media (max-width: 775px) {
             width: fit-content;
         }
@@ -50,7 +54,7 @@ const styles = {
         }
     `,
     textColumn: css`
-        padding: 4rem 0;
+        height: 100%;
     `,
     pictureColumn: css`
         @media (max-width: 900px) {
@@ -61,6 +65,7 @@ const styles = {
     catchLine: css`
         font-size: 2.25rem;
         font-family: 'IBM Plex Sans', sans-serif;
+
         @media (max-width: 620px) {
             font-size: max(5.8vw, 1rem);
             width: fit-content;

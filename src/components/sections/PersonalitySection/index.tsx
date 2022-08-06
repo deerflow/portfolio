@@ -51,6 +51,9 @@ const styles = {
         li {
             ${themeTransition('color')}
         }
+        @media (max-width: 370px) {
+            font-size: max(5.4vw, 0.625rem);
+        }
     `,
 };
 

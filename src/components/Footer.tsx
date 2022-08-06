@@ -13,7 +13,7 @@ const Footer: FC = () => {
                 <SocialIcon style={socialIconStyle} icon='gitHub' href='https://github.com/deerflow' />
                 <SocialIcon style={socialIconStyle} icon='mail' href='mailto:alu.florian@gmail.com' />
             </FlexRow>
-            <Copyright>florianalu.net 2022 - All rights reserved</Copyright>
+            <Copyright>florianalu.net 2022 - No rights reserved</Copyright>
         </FooterTag>
     );
 };
@@ -22,16 +22,26 @@ const FooterTag = styled.footer`
     border: 2px solid var(--color-dark);
     padding: 2rem;
     color: var(--color-footer);
-    ${themeTransition('color', 'border-color')}
+    ${themeTransition('color', 'border-color')};
+
+    @media (max-width: 370px) {
+        padding: max(8.6vw, 0.5rem);
+    }
 `;
 
 const Copyright = styled.p`
     margin-top: 1rem;
     text-align: center;
+    @media (max-width: 370px) {
+        margin-top: max(4.3vw, 0.5rem);
+    }
 `;
 
 const socialIconStyle = css`
     margin: 0 1rem;
+    @media (max-width: 370px) {
+        margin: 0 max(4.3vw, 0.5rem);
+    }
 `;
 
 export default Footer;

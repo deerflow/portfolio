@@ -18,12 +18,12 @@ const Section: FCWithChildren<Props> = ({
 }) => {
     const Section = useMemo(
         () => styled.section`
-            ${baseStyle}
+            ${baseStyle};
             background-color: var(--color-${backgroundColor});
-            ${dotted ? dottedBackgroundStyle : ''}
-            ${borders ? bindBordersToStyle[borders] : ''}
-                ${stripped ? strippedBackgroundStyle(stripOrientation) : ''}
-                ${padding
+            ${dotted ? dottedBackgroundStyle : ''};
+            ${borders ? bindBordersToStyle[borders] : ''};
+            ${stripped ? strippedBackgroundStyle(stripOrientation) : ''};
+            ${padding
                 ? css`
                       padding: 2.875rem;
                       @media (max-width: 600px) {
@@ -33,8 +33,8 @@ const Section: FCWithChildren<Props> = ({
                           padding: 0.75rem;
                       }
                   `
-                : ''}
-                ${style};
+                : ''};
+            ${style};
         `,
         [style, backgroundColor, dotted, borders, padding, stripped, stripOrientation]
     );

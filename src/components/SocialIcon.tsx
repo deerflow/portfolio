@@ -12,12 +12,21 @@ const SocialIcon: FC<Props> = ({ icon, href, style }) => {
 };
 
 const svgStyle = css`
+    width: 2.25rem;
+    height: 2.25rem;
+
     & path {
         fill: var(--color-footer);
         transition: fill 300ms;
     }
     &:hover path {
         fill: var(--color-shadow);
+    }
+
+    @media (max-width: 370px) {
+        --dimension-img: max(9.72vw, 1.125rem);
+        width: var(--dimension-img);
+        width: var(--dimension-img);
     }
 `;
 

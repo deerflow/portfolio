@@ -20,6 +20,21 @@ const Root = styled.li`
     &:not(:last-child) {
         margin-bottom: 1rem;
     }
+    @media (max-width: 370px) {
+        --dimension-responsive-1-rem: max(4.3vw, 0.5rem);
+        &:not(:last-child) {
+            margin-bottom: var(--dimension-responsive-1-rem);
+        }
+        p {
+            font-size: max(5.4vw, 0.625rem);
+            margin-left: var(--dimension-responsive-1-rem);
+        }
+        img {
+            --dimension-img: max(9.72vw, 1.125rem);
+            width: var(--dimension-img);
+            height: var(--dimension-img);
+        }
+    }
 `;
 
 const Title = styled.p`

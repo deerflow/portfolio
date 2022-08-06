@@ -14,17 +14,17 @@ const HobbiesSection: FC = () => {
                     title='Pratique musicale (12 ans au Conservatoire de Grenoble)'
                     sublist={
                         <SubList>
-                            <li>- Cor</li>
-                            <li>- Piano</li>
-                            <li>- Chant</li>
+                            <li>Cor</li>
+                            <li>Piano</li>
+                            <li>Chant</li>
                             <li>
-                                - Musique assistée par ordinateur (
+                                Musique assistée par ordinateur (
                                 <a href='https://soundcloud.com/deerflow' target='_blank'>
                                     Lien Soundcloud
                                 </a>
                                 )
                             </li>
-                            <li>- Composition musicale</li>
+                            <li>Composition musicale</li>
                         </SubList>
                     }
                 />
@@ -47,13 +47,22 @@ const SubList = styled.ul`
     font-family: 'IBM Plex Mono', monospace;
 
     li {
-        ${themeTransition('color')}
+        ${themeTransition('color')};
+        @media (max-width: 370px) {
+            font-size: max(4.3vw, 0.5rem);
+        }
+    }
+    li:before {
+        content: '- ';
     }
 `;
 
 const ThankParagraph = styled.p`
     margin-top: 2rem;
     font-size: 1.25rem;
+    @media (max-width: 370px) {
+        font-size: max(5.4vw, 0.625rem);
+    }
 `;
 
 export default HobbiesSection;

@@ -48,12 +48,16 @@ const SubList = styled.ul`
 
     li {
         ${themeTransition('color')};
-        @media (max-width: 370px) {
-            font-size: max(4.3vw, 0.5rem);
-        }
     }
     li:before {
         content: '- ';
+    }
+
+    @media (max-width: 370px) {
+        margin-left: max(14vw, 1.625rem);
+        li {
+            font-size: max(4.3vw, 0.5rem);
+        }
     }
 `;
 

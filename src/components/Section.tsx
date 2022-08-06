@@ -17,25 +17,20 @@ const Section: FCWithChildren<Props> = ({
     stripOrientation,
 }) => {
     const Section = useMemo(
-        () => styled.section`
-            ${baseStyle};
-            background-color: var(--color-${backgroundColor});
-            ${dotted ? dottedBackgroundStyle : ''};
-            ${borders ? bindBordersToStyle[borders] : ''};
-            ${stripped ? strippedBackgroundStyle(stripOrientation) : ''};
-            ${padding
-                ? css`
-                      padding: 2.875rem;
-                      @media (max-width: 600px) {
-                          padding: 1.5rem;
-                      }
-                      @media (max-width: 250px) {
-                          padding: 0.75rem;
-                      }
-                  `
-                : ''};
-            ${style};
-        `,
+        () =>
+            styled.section`
+                ${baseStyle};
+                background-color: var(--color-${backgroundColor});
+                ${dotted ? dottedBackgroundStyle : ''};
+                ${borders ? bindBordersToStyle[borders] : ''};
+                ${stripped ? strippedBackgroundStyle(stripOrientation) : ''};
+                ${padding
+                    ? css`
+                          padding: var(--dimension-section-padding);
+                      `
+                    : ''};
+                ${style};
+            ` as unknown as FCWithChildren,
         [style, backgroundColor, dotted, borders, padding, stripped, stripOrientation]
     );
 

@@ -31,6 +31,12 @@ const HeaderSpace = styled.div`
 
 const Heading1 = styled.h1`
     margin: 0.75rem 0 1.5rem 0;
+    @media (max-width: 370px) {
+        font-size: max(17.3vw, 2rem);
+    }
+    @media (max-width: 230px) {
+        overflow-wrap: break-word;
+    }
 `;
 
 export default Portfolio;

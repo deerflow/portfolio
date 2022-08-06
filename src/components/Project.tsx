@@ -17,7 +17,11 @@ const Project: FC<Props> = ({
     return (
         <Root>
             <Title>{title}</Title>
-            {organization.href ? <a href={organization.href}>{organization.name}</a> : <p>{organization.name}</p>}
+            {organization.href ? (
+                <OrganizationLink href={organization.href}>{organization.name}</OrganizationLink>
+            ) : (
+                <p>{organization.name}</p>
+            )}
             <Description>{description}</Description>
             <TechnologyList>
                 {technologies.map(technology => (
@@ -34,7 +38,10 @@ const Project: FC<Props> = ({
                             src={screenshot.href}
                             key={screenshot.href}
                             alt={screenshot.alt}
-                            css={{ width: screenshotWidth }}
+                            css={css`
+                                width: 100%;
+                                max-width: ${screenshotWidth}px;
+                            `}
                         />
                     ))}
                 </div>
@@ -60,9 +67,18 @@ const Root = styled.article`
 
 const Title = styled.h2`
     font-family: 'IBM Plex Sans', sans-serif;
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 0.75rem;
     font-size: 1.75rem;
     font-weight: 600;
+    @media (max-width: 370px) {
+        font-size: max(7.6vw, 0.875rem);
+    }
+`;
+
+const OrganizationLink = styled.a`
+    @media (max-width: 370px) {
+        font-size: max(4.3vw, 0.5rem);
+    }
 `;
 
 const Description = styled.p`
@@ -72,14 +88,17 @@ const Description = styled.p`
 const TechnologyList = styled.ul`
     list-style-type: none;
     display: flex;
-    margin: 0.75rem 0;
+    flex-wrap: wrap;
+    margin: 0.45rem 0;
     & li {
         display: flex;
         align-items: center;
-        margin-right: 1rem;
+        margin: 0.3rem 1rem 0.3rem 0;
     }
-    & li img {
+    & img {
         margin-right: 0.25rem;
+        @media (max-width: 370px) {
+        }
     }
 `;
 
@@ -88,7 +107,7 @@ const Screenshot = styled.img`
 `;
 
 interface Props extends IProject {
-    screenshotWidth?: string;
+    screenshotWidth?: number;
     horizontalRule?: boolean;
 }
 

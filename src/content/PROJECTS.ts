@@ -12,7 +12,7 @@ const ORGANIZATIONS = {
     personal: { name: 'Projet personnel', href: 'https://florianalu.net' },
 };
 
-const PROJECTS: (Project & { screenshotWidth?: string })[] = [
+const PROJECTS: (Project & { screenshotWidth?: number })[] = [
     {
         title: 'Application hybride iOS, Android et PWA',
         organization: ORGANIZATIONS.campusSkills,
@@ -24,7 +24,7 @@ const PROJECTS: (Project & { screenshotWidth?: string })[] = [
             { href: timeline, alt: "Écran du livret électronique d'apprentissage" },
             { href: report, alt: "Écran d'un rapport" },
         ],
-        screenshotWidth: '12rem',
+        screenshotWidth: 192,
     },
     {
         title: "Scraper de titres RNCP et interface d'édition avec tableur",
@@ -37,7 +37,7 @@ const PROJECTS: (Project & { screenshotWidth?: string })[] = [
             { href: details, alt: "Vue détails d'un titre RNCP" },
             { href: statistics, alt: 'Vue des statistiques' },
         ],
-        screenshotWidth: '24rem',
+        screenshotWidth: 384,
     },
     {
         title: "Ajout de fonctionnalités à l'api Campus Skills",

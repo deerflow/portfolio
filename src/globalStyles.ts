@@ -4,6 +4,14 @@ import { scrollTransition, themeTransition } from './modules/Transitions';
 const dimensions = css`
     --dimension-header-height: 5.25rem;
     --dimension-initial-padding: 1rem;
+    --dimension-section-padding: 2.875rem;
+
+    @media (max-width: 600px) {
+        --dimension-section-padding: 1.5rem;
+    }
+    @media (max-width: 250px) {
+        --dimension-section-padding: 0.75rem;
+    }
 `;
 
 const staticColors = css`

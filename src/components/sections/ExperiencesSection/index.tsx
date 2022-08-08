@@ -27,7 +27,7 @@ const experiences: IEvent[] = [
         organizationHref: 'https://hp.com',
         place: 'Grenoble',
         description:
-            "Entretien avec différents professionnels dans le domaine de l'informatique : développement, réseaux, maintenance, qualité produit, projet.Visite d'un data center.",
+            "Entretien avec différents professionnels dans le domaine de l'informatique : développement, réseaux, maintenance, qualité produit, projet. Visite d'un data center.",
     },
 ];
 

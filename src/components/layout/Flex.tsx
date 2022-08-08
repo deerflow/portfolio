@@ -12,6 +12,7 @@ export const Flex: FCWithChildren<FlexProps> = ({
     shrink,
     basis,
     style,
+    className,
 }) => {
     const computedStyle = useMemo(
         () => css`
@@ -28,7 +29,11 @@ export const Flex: FCWithChildren<FlexProps> = ({
         [direction, justifyContent, alignItems, wrap, grow, shrink, basis, style]
     );
 
-    return <div css={computedStyle}>{children}</div>;
+    return (
+        <div css={computedStyle} className={className}>
+            {children}
+        </div>
+    );
 };
 
 export const FlexRow: FCWithChildren<BaseProps> = ({ children, ...props }) => <Flex {...props}>{children}</Flex>;
@@ -46,6 +51,7 @@ interface BaseProps {
     shrink?: number;
     basis?: CSSProperties['flexBasis'];
     style?: SerializedStyles;
+    className?: string;
 }
 
 interface FlexProps extends BaseProps {

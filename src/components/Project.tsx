@@ -26,7 +26,7 @@ const Project: FC<Props> = ({
             <TechnologyList>
                 {technologies.map(technology => (
                     <li>
-                        <img src={Technologies[technology]} alt={`Logo de ${technology}`} />
+                        <TechnologyLogo src={Technologies[technology]} alt={`Logo de ${technology}`} />
                         <p>{technology}</p>
                     </li>
                 ))}
@@ -100,6 +100,11 @@ const TechnologyList = styled.ul`
         @media (max-width: 370px) {
         }
     }
+`;
+
+const TechnologyLogo = styled.img`
+    width: 1.5rem;
+    height: 1.5rem;
 `;
 
 const Screenshot = styled.img`

@@ -9,6 +9,7 @@ const dimensions = css`
     @media (max-width: 600px) {
         --dimension-section-padding: 1.5rem;
     }
+
     @media (max-width: 250px) {
         --dimension-section-padding: 0.75rem;
     }
@@ -80,6 +81,12 @@ const globalStyles = css`
 
     html[data-scrolled] {
         --dimension-initial-padding: 0rem;
+    }
+
+    @media (max-width: 340px) {
+        html:not([data-scrolled]) {
+            --dimension-initial-padding: 0.5rem;
+        }
     }
 
     @media (prefers-color-scheme: dark) {

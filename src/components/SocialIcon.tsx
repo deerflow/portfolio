@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 
 const SocialIcon: FC<Props> = ({ icon, href, name, className }) => {
     return (
-        <ExternalLink href={href} className={className}>
+        <ExternalLink href={href} className={className} aria-label={name}>
             <span className='sr-only'>{name}</span>
             {svgs[icon]}
         </ExternalLink>

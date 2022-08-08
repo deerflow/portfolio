@@ -35,6 +35,10 @@ const styles = {
         @media (max-width: 900px) {
             padding: 0 1.4375rem;
         }
+
+        @media (max-width: 340px) {
+            padding: 0 0.75rem;
+        }
     `,
     row: css`
         height: 100%;

@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import SkillList from './SkillList';
 import { FlexRow } from '../../layout/Flex';
-import { css } from '@emotion/react';
 import { Stylable } from '../../../types/_extendFrom';
+import styled from '@emotion/styled';
 
 const SkillCategory: FC<Props> = ({ title, lists, className }) => {
     return (
@@ -10,18 +10,16 @@ const SkillCategory: FC<Props> = ({ title, lists, className }) => {
             <h3>{title}</h3>
             <FlexRow>
                 {lists.map((list, index) => (
-                    <SkillList key={index} skills={list} css={styles.skillList} />
+                    <StyledSkillList key={index} skills={list} />
                 ))}
             </FlexRow>
         </div>
     );
 };
 
-const styles = {
-    skillList: css`
-        width: 50%;
-    `,
-};
+const StyledSkillList = styled(SkillList)`
+    width: 50%;
+`;
 
 interface Props extends Stylable {
     title: string;

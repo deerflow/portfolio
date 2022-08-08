@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 import Section from '../../Section';
-import { css } from '@emotion/react';
 import { scrollTransition } from '../../../modules/Transitions';
 import ExternalLink from '../../ExternalLink';
 import Anchor from '../../Anchor';
+import styled from '@emotion/styled';
 
 const PresentationSection: FC = () => {
     return (
         <>
             <Anchor id='cv' />
-            <Section backgroundColor='secondary' borders='all-but-bottom' padding css={styles.section} stripped>
+            <MainSection backgroundColor='secondary' borders='all-but-bottom' padding stripped>
                 <article>
                     <p>
                         Bonjour et bienvenue sur mon CV. Je m'appelle <em>Florian Alù</em> et suis fraîchement diplômé
@@ -29,20 +29,18 @@ const PresentationSection: FC = () => {
                         <em>à l'écoute d'opportunités professionnelles</em> dans la région grenobloise.
                     </p>
                 </article>
-            </Section>
+            </MainSection>
         </>
     );
 };
 
-const styles = {
-    section: css`
-        font-size: 1.25rem;
-        position: relative;
-        html[data-scrolled] & {
-            margin-top: -2px;
-        }
-        ${scrollTransition('margin')}
-    `,
-};
+const MainSection = styled(Section)`
+    font-size: 1.25rem;
+    position: relative;
+    html[data-scrolled] & {
+        margin-top: -2px;
+    }
+    ${scrollTransition('margin')}
+`;
 
 export default PresentationSection;

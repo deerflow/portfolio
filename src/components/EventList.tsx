@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { FlexRow } from './layout/Flex';
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import ExternalLink from './ExternalLink';
 
@@ -8,7 +7,7 @@ const EventList: FC<{ events: IEvent[] }> = ({ events }) => {
     return (
         <Root>
             {events.map(({ time, title, organization, organizationHref, place, description }, index) => (
-                <FlexRow justifyContent='space-evenly' style={styles.event} key={`${title} - ${time}`}>
+                <Row justifyContent='space-evenly' key={`${title} - ${time}`}>
                     <Time>{time}</Time>
                     <Body>
                         <Title>{title}</Title>
@@ -22,7 +21,7 @@ const EventList: FC<{ events: IEvent[] }> = ({ events }) => {
                         </p>
                         {description && <Description>{description}</Description>}
                     </Body>
-                </FlexRow>
+                </Row>
             ))}
         </Root>
     );
@@ -38,6 +37,18 @@ const Root = styled.div`
         time {
             font-size: max(5.4vw, 0.625rem);
         }
+    }
+`;
+
+const Row = styled(FlexRow)`
+    &:not(:last-child) {
+        margin-bottom: 2rem;
+        @media (max-width: 370px) {
+            margin-bottom: max(8.64vw, 1rem);
+        }
+    }
+    @media (max-width: 640px) {
+        flex-wrap: wrap;
     }
 `;
 
@@ -76,20 +87,6 @@ const Description = styled.p`
         margin-top: max(4.32vw, 0.5rem);
     }
 `;
-
-const styles = {
-    event: css`
-        &:not(:last-child) {
-            margin-bottom: 2rem;
-            @media (max-width: 370px) {
-                margin-bottom: max(8.64vw, 1rem);
-            }
-        }
-        @media (max-width: 640px) {
-            flex-wrap: wrap;
-        }
-    `,
-};
 
 export interface IEvent {
     time: string;

@@ -1,18 +1,11 @@
 import React, { FC } from 'react';
 import Section from '../../Section';
-import { css } from '@emotion/react';
 import { themeTransition } from '../../../modules/Transitions';
+import styled from '@emotion/styled';
 
 const PersonalitySection: FC = () => {
     return (
-        <Section
-            backgroundColor='secondary'
-            borders='all-but-bottom'
-            padding
-            css={styles.section}
-            stripped
-            stripOrientation='-45deg'
-        >
+        <MainSection backgroundColor='secondary' borders='all-but-bottom' padding stripped stripOrientation='-45deg'>
             <h2>Personnalité</h2>
             <ul>
                 <li>
@@ -34,27 +27,25 @@ const PersonalitySection: FC = () => {
                     <em>Autonome</em>, éternel <em>autodidacte</em>
                 </li>
             </ul>
-        </Section>
+        </MainSection>
     );
 };
 
-const styles = {
-    section: css`
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 1.25rem;
-        ul {
-            list-style: none;
-        }
-        li::before {
-            content: '- ';
-        }
-        li {
-            ${themeTransition('color')}
-        }
-        @media (max-width: 370px) {
-            font-size: max(5.4vw, 0.625rem);
-        }
-    `,
-};
+const MainSection = styled(Section)`
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.25rem;
+    ul {
+        list-style: none;
+    }
+    li::before {
+        content: '- ';
+    }
+    li {
+        ${themeTransition('color')}
+    }
+    @media (max-width: 370px) {
+        font-size: max(5.4vw, 0.625rem);
+    }
+`;
 
 export default PersonalitySection;

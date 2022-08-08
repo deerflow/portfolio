@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { css } from '@emotion/react';
 import { Link, PageProps } from 'gatsby';
 import SwitchThemeButton from './SwitchThemeButton';
 import FavIcon from './icons/FavIcon';
@@ -13,14 +12,13 @@ const Header: FC<Props> = ({ location }) => {
             <BackgroundHider />
             <HeaderTag>
                 <LeftPart>
-                    <HeaderLink
+                    <FaviconLink
                         to='/'
-                        css={styles.faviconLink}
                         isCurrentRoute={location.pathname === '/'}
                         onCurrentPageLinkClick={handleRootLinkClick}
                     >
-                        <FavIcon css={styles.favicon} />
-                    </HeaderLink>
+                        <FavIcon />
+                    </FaviconLink>
 
                     <Ul>
                         <li>
@@ -33,9 +31,7 @@ const Header: FC<Props> = ({ location }) => {
                             </HeaderLink>
                         </li>
                         <li>
-                            <Link to='/#cv' css={styles.cvLink}>
-                                Curriculum Vitae
-                            </Link>
+                            <CvLink to='/#cv'>Curriculum Vitae</CvLink>
                         </li>
                         <li>
                             <HeaderLink to='/portfolio' isCurrentRoute={location.pathname === '/portfolio'}>
@@ -111,6 +107,12 @@ const LeftPart = styled.div`
     }
 `;
 
+const FaviconLink = styled(HeaderLink)`
+    &:hover {
+        background: none;
+    }
+`;
+
 const Ul = styled.ul`
     display: flex;
     width: 38rem;
@@ -161,26 +163,14 @@ const Ul = styled.ul`
     }
 `;
 
+const CvLink = styled(Link)`
+    scroll-behavior: smooth;
+`;
+
 const handleRootLinkClick = () => {
     if (location.pathname === '/' && location.hash !== '') {
         history.pushState({}, '', '/');
     }
-};
-
-const styles = {
-    faviconLink: css`
-        &:hover {
-            background: none;
-        }
-    `,
-    cvLink: css`
-        scroll-behavior: smooth;
-    `,
-    favicon: css`
-        @media (max-width: 680px) {
-            display: none;
-        }
-    `,
 };
 
 interface Props {

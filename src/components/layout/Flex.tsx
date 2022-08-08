@@ -1,6 +1,6 @@
 import React, { CSSProperties, useMemo } from 'react';
 import { FCWithChildren } from '../../types/utils';
-import { css, SerializedStyles } from '@emotion/react';
+import { css } from '@emotion/react';
 
 export const Flex: FCWithChildren<FlexProps> = ({
     children,
@@ -11,7 +11,6 @@ export const Flex: FCWithChildren<FlexProps> = ({
     grow,
     shrink,
     basis,
-    style,
     className,
 }) => {
     const computedStyle = useMemo(
@@ -24,9 +23,8 @@ export const Flex: FCWithChildren<FlexProps> = ({
             ${grow ? `flex-grow: ${grow}` : ''};
             ${shrink ? `flex-shrink: ${shrink}` : ''};
             ${basis ? `flex-basis: ${basis}` : ''};
-            ${style ? style : ''}
         `,
-        [direction, justifyContent, alignItems, wrap, grow, shrink, basis, style]
+        [direction, justifyContent, alignItems, wrap, grow, shrink, basis]
     );
 
     return (
@@ -50,7 +48,6 @@ interface BaseProps {
     grow?: number;
     shrink?: number;
     basis?: CSSProperties['flexBasis'];
-    style?: SerializedStyles;
     className?: string;
 }
 

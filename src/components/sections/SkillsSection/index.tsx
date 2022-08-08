@@ -5,8 +5,9 @@ import SkillCategory from './SkillCategory';
 import { scrollTransition } from '../../../modules/Transitions';
 import { Flags, Technologies, Tools } from '../../../modules/Icons';
 import styled from '@emotion/styled';
+import { Skill } from '../../../types/api';
 
-const skillsLists = {
+const skillsLists: Record<'technologies' | 'tools' | 'languages', Skill[][]> = {
     technologies: [
         [
             { title: 'React & React Native', icon: Technologies.React },

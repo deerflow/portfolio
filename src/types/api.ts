@@ -10,3 +10,9 @@ export interface Project {
     screenshots?: { href: string; alt: string }[];
     technologies: (keyof typeof Technologies)[];
 }
+
+export interface Skill {
+    title: string;
+    icon: string;
+    alt?: string;
+}

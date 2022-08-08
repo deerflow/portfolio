@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { FlexRow } from '../../layout/Flex';
 import { Stylable } from '../../../types/_extendFrom';
 import styled from '@emotion/styled';
+import { Skill } from '../../../types/api';
 
 const SkillList: FC<Props> = ({ skills, className }) => {
     return (
@@ -45,7 +46,7 @@ const SkillTitle = styled.p`
 `;
 
 interface Props extends Stylable {
-    skills: readonly { title: string; icon: string; alt?: string }[];
+    skills: Skill[];
 }
 
 export default SkillList;

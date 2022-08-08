@@ -2,16 +2,15 @@ import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { FlexRow } from './layout/Flex';
 import SocialIcon from './SocialIcon';
-import { css } from '@emotion/react';
 import { themeTransition } from '../modules/Transitions';
 
 const Footer: FC = () => {
     return (
         <FooterTag>
             <FlexRow justifyContent='center'>
-                <SocialIcon css={socialIconStyle} icon='linkedIn' href='https://www.linkedin.com/in/florian-alù/' />
-                <SocialIcon css={socialIconStyle} icon='gitHub' href='https://github.com/deerflow' />
-                <SocialIcon css={socialIconStyle} icon='mail' href='mailto:alu.florian@gmail.com' />
+                <SocialIcon icon='linkedIn' href='https://www.linkedin.com/in/florian-alù/' />
+                <SocialIcon icon='gitHub' href='https://github.com/deerflow' />
+                <SocialIcon icon='mail' href='mailto:alu.florian@gmail.com' />
             </FlexRow>
             <Copyright>florianalu.net 2022 - No rights reserved</Copyright>
         </FooterTag>
@@ -29,18 +28,18 @@ const FooterTag = styled.footer`
     }
 `;
 
+const StyledSocialIcon = styled(SocialIcon)`
+    margin: 0 1rem;
+    @media (max-width: 370px) {
+        margin: 0 max(4.3vw, 0.5rem);
+    }
+`;
+
 const Copyright = styled.p`
     margin-top: 1rem;
     text-align: center;
     @media (max-width: 370px) {
         margin-top: max(4.3vw, 0.5rem);
-    }
-`;
-
-const socialIconStyle = css`
-    margin: 0 1rem;
-    @media (max-width: 370px) {
-        margin: 0 max(4.3vw, 0.5rem);
     }
 `;
 

@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { Project as IProject } from '../types/api';
 import { Technologies } from '../modules/Icons';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import settings from '../settings';
 
 const Project: FC<Props> = ({
@@ -14,6 +13,15 @@ const Project: FC<Props> = ({
     screenshotWidth,
     horizontalRule,
 }) => {
+    const ComputedScreenshot = useMemo(
+        () => styled.img`
+            margin-right: 0.5rem;
+            width: 100%;
+            max-width: ${screenshotWidth}px;
+        `,
+        [screenshotWidth]
+    );
+
     return (
         <Root>
             <Title>{title}</Title>
@@ -34,29 +42,11 @@ const Project: FC<Props> = ({
             {screenshots && (
                 <div>
                     {screenshots.map(screenshot => (
-                        <Screenshot
-                            src={screenshot.href}
-                            key={screenshot.href}
-                            alt={screenshot.alt}
-                            css={css`
-                                width: 100%;
-                                max-width: ${screenshotWidth}px;
-                            `}
-                        />
+                        <ComputedScreenshot src={screenshot.href} key={screenshot.href} alt={screenshot.alt} />
                     ))}
                 </div>
             )}
-            {horizontalRule && (
-                <hr
-                    css={css`
-                        margin-top: 1.3rem;
-                        height: 0;
-                        border-width: 2px 0 0 0;
-                        border-color: var(--color-accent);
-                        transition: border-color ${settings.themeTransitionDuration}ms;
-                    `}
-                />
-            )}
+            {horizontalRule && <HorizontalRule />}
         </Root>
     );
 };
@@ -107,8 +97,12 @@ const TechnologyLogo = styled.img`
     height: 1.5rem;
 `;
 
-const Screenshot = styled.img`
-    margin-right: 0.5rem;
+const HorizontalRule = styled.hr`
+    margin-top: 1.3rem;
+    height: 0;
+    border-width: 2px 0 0 0;
+    border-color: var(--color-accent);
+    transition: border-color ${settings.themeTransitionDuration}ms;
 `;
 
 interface Props extends IProject {

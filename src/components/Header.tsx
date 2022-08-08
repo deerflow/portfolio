@@ -16,8 +16,8 @@ const Header: FC<Props> = ({ location }) => {
                         to='/'
                         isCurrentRoute={location.pathname === '/'}
                         onCurrentPageLinkClick={handleRootLinkClick}
-                        aria-hidden='true'
                     >
+                        <span className='sr-only'>Icône du site et lien vers l'accueil</span>
                         <FavIcon />
                     </FaviconLink>
 

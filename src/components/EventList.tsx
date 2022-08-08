@@ -75,8 +75,9 @@ const Body = styled.div`
     }
 `;
 
-const Title = styled.h4`
+const Title = styled.h3`
     font-family: inherit;
+    font-size: 1.25rem;
     margin: 0;
     font-weight: 600;
 `;

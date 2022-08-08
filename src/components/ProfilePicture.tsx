@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import profilePicture from '../assets/jpg/profile.jpg';
 import styled from '@emotion/styled';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const ProfilePicture: FC = () => {
     return (
         <Root>
-            <img src={profilePicture} />
+            <StaticImage src='../assets/jpg/profile.jpg' alt='Photo de Florian Alù' width={233} height={233} />
         </Root>
     );
 };

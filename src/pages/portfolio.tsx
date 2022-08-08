@@ -10,7 +10,7 @@ import Section from '../components/Section';
 const Portfolio: FC<PageProps> = ({ location }) => {
     return (
         <StateProvider>
-            <GlobalLayout location={location} title='Portfolio - Florian Alù'>
+            <GlobalLayout location={location} title='Portfolio - Florian Alù' description={META.description.portfolio}>
                 <HeaderSpace />
                 <Section backgroundColor='primary' borders='all-but-bottom' padding dotted>
                     <Heading1>Portfolio</Heading1>

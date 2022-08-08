@@ -14,7 +14,7 @@ import HobbiesSection from '../components/sections/HobbiesSection';
 const Home: FC<PageProps> = ({ location }) => {
     return (
         <StateProvider>
-            <GlobalLayout location={location} title='Accueil - Florian Alù'>
+            <GlobalLayout location={location} title='Accueil - Florian Alù' description={META.description.home}>
                 <SemiHeaderSpace />
                 <HomeSection />
                 <PresentationSection />

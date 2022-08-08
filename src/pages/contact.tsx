@@ -9,7 +9,7 @@ import settings from '../settings';
 const Contact: FC<PageProps> = ({ location }) => {
     return (
         <StateProvider>
-            <GlobalLayout location={location} title='Portfolio - Florian Alù'>
+            <GlobalLayout location={location} title='Portfolio - Florian Alù' description={META.description.contact}>
                 <HeaderSpace />
                 <MainSection
                     backgroundColor='secondary'

@@ -6,6 +6,7 @@ import PROJECTS from '../content/PROJECTS';
 import Project from '../components/Project';
 import StateProvider from '../components/StateProvider';
 import Section from '../components/Section';
+import META from '../content/META';
 
 const Portfolio: FC<PageProps> = ({ location }) => {
     return (

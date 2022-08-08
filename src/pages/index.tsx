@@ -10,6 +10,7 @@ import { PageProps } from 'gatsby';
 import GlobalLayout from '../components/GlobalLayout';
 import styled from '@emotion/styled';
 import HobbiesSection from '../components/sections/HobbiesSection';
+import META from '../content/META';
 
 const Home: FC<PageProps> = ({ location }) => {
     return (

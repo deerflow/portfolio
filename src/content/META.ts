@@ -5,3 +5,5 @@ const META = {
         contact: 'Coordonnées de Florian Alù - Développeur Fullstack (React, Vue, Node.js, Laravel, Go)',
     },
 };
+
+export default META;

@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import StateProvider from '../components/StateProvider';
 import Section from '../components/Section';
 import settings from '../settings';
+import META from '../content/META';
 
 const Contact: FC<PageProps> = ({ location }) => {
     return (

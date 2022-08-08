@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 const SocialIcon: FC<Props> = ({ icon, href, name, className }) => {
     return (
         <ExternalLink href={href} className={className}>
+            <span className='sr-only'>{name}</span>
             {svgs[icon]}
-            <span className='sr-only'>{name ? name : icon}</span>
         </ExternalLink>
     );
 };
@@ -83,7 +83,7 @@ const svgs = {
 interface Props extends Stylable {
     icon: keyof typeof svgs;
     href: string;
-    name?: string;
+    name: string;
 }
 
 export default SocialIcon;

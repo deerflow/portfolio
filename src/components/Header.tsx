@@ -15,11 +15,11 @@ const Header: FC<Props> = ({ location }) => {
                 <LeftPart>
                     <HeaderLink
                         to='/'
-                        style={styles.faviconLink}
+                        css={styles.faviconLink}
                         isCurrentRoute={location.pathname === '/'}
                         onCurrentPageLinkClick={handleRootLinkClick}
                     >
-                        <FavIcon style={styles.favicon} />
+                        <FavIcon css={styles.favicon} />
                     </HeaderLink>
 
                     <Ul>

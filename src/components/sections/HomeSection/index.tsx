@@ -6,7 +6,7 @@ import Section from '../../Section';
 
 const HomeSection: FC = () => {
     return (
-        <Section backgroundColor='primary' style={styles.section} dotted borders='all'>
+        <Section backgroundColor='primary' css={styles.section} dotted borders='all'>
             <FlexRow grow={1} style={styles.row} justifyContent='space-between'>
                 <FlexColumn basis='50%' justifyContent='space-evenly' style={styles.textColumn} alignItems='stretch'>
                     <h1 css={styles.heading}>Florian Alù</h1>

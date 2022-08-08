@@ -4,13 +4,13 @@ import { FlexRow } from '../../layout/Flex';
 import { css } from '@emotion/react';
 import { Stylable } from '../../../types/_extendFrom';
 
-const SkillCategory: FC<Props> = ({ title, lists, style }) => {
+const SkillCategory: FC<Props> = ({ title, lists, className }) => {
     return (
-        <div css={style}>
+        <div className={className}>
             <h3>{title}</h3>
             <FlexRow>
                 {lists.map((list, index) => (
-                    <SkillList key={index} skills={list} style={styles.skillList} />
+                    <SkillList key={index} skills={list} css={styles.skillList} />
                 ))}
             </FlexRow>
         </div>

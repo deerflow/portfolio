@@ -3,9 +3,9 @@ import { css } from '@emotion/react';
 import { FlexRow } from '../../layout/Flex';
 import { Stylable } from '../../../types/_extendFrom';
 
-const SkillList: FC<Props> = ({ skills, style }) => {
+const SkillList: FC<Props> = ({ skills, className }) => {
     return (
-        <ul css={[styles.list, style]}>
+        <ul css={[styles.list, className]}>
             {skills.map(skill => (
                 <li key={skill.title} css={styles.li}>
                     <FlexRow style={styles.row} justifyContent='center' alignItems='center'>

@@ -9,9 +9,9 @@ const Footer: FC = () => {
     return (
         <FooterTag>
             <FlexRow justifyContent='center'>
-                <SocialIcon style={socialIconStyle} icon='linkedIn' href='https://www.linkedin.com/in/florian-alù/' />
-                <SocialIcon style={socialIconStyle} icon='gitHub' href='https://github.com/deerflow' />
-                <SocialIcon style={socialIconStyle} icon='mail' href='mailto:alu.florian@gmail.com' />
+                <SocialIcon css={socialIconStyle} icon='linkedIn' href='https://www.linkedin.com/in/florian-alù/' />
+                <SocialIcon css={socialIconStyle} icon='gitHub' href='https://github.com/deerflow' />
+                <SocialIcon css={socialIconStyle} icon='mail' href='mailto:alu.florian@gmail.com' />
             </FlexRow>
             <Copyright>florianalu.net 2022 - No rights reserved</Copyright>
         </FooterTag>

@@ -18,7 +18,7 @@ const Contact: FC<PageProps> = ({ location }) => {
                     padding
                     stripped
                     stripOrientation='-45deg'
-                    style={styles.section}
+                    css={styles.section}
                 >
                     <Heading1>Contact</Heading1>
                     <Address>

@@ -4,13 +4,13 @@ import { FCWithChildren } from '../types/utils';
 import { Stylable } from '../types/_extendFrom';
 import { Link } from 'gatsby';
 
-const HeaderLink: FCWithChildren<Props> = ({ isCurrentRoute, children, style, to, onCurrentPageLinkClick }) => {
+const HeaderLink: FCWithChildren<Props> = ({ isCurrentRoute, children, className, to, onCurrentPageLinkClick }) => {
     return isCurrentRoute ? (
-        <CurrentPageLink to={to} style={style} onClick={onCurrentPageLinkClick}>
+        <CurrentPageLink to={to} className={className} onClick={onCurrentPageLinkClick}>
             {children}
         </CurrentPageLink>
     ) : (
-        <Link to={to} css={style}>
+        <Link to={to} className={className}>
             {children}
         </Link>
     );

@@ -38,23 +38,23 @@ const skillsLists = {
 
 const SkillsSection: FC = () => {
     return (
-        <Section backgroundColor='primary' padding style={styles.section} borders='all-but-bottom' dotted>
+        <Section backgroundColor='primary' padding css={styles.section} borders='all-but-bottom' dotted>
             <h2>Compétences</h2>
             <FlexRow wrap>
                 <FlexColumn basis='calc(50% - 1rem)' style={styles.firstColumn}>
                     <SkillCategory
                         title='Technologies'
                         lists={skillsLists.technologies}
-                        style={[styles.skillCategory, styles.skillCategoryGutterBottom]}
+                        css={[styles.skillCategory, styles.skillCategoryGutterBottom]}
                     />
                 </FlexColumn>
                 <FlexColumn basis='calc(50% - 1rem)' justifyContent='space-between' style={styles.secondColumn}>
                     <SkillCategory
                         title='Outils'
                         lists={skillsLists.tools}
-                        style={[styles.skillCategory, styles.skillCategoryGutterBottom]}
+                        css={[styles.skillCategory, styles.skillCategoryGutterBottom]}
                     />
-                    <SkillCategory title='Langues' lists={skillsLists.languages} style={styles.skillCategory} />
+                    <SkillCategory title='Langues' lists={skillsLists.languages} css={styles.skillCategory} />
                 </FlexColumn>
             </FlexRow>
         </Section>

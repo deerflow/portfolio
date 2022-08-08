@@ -9,7 +9,7 @@ const PresentationSection: FC = () => {
     return (
         <>
             <Anchor id='cv' />
-            <Section backgroundColor='secondary' borders='all-but-bottom' padding style={styles.section} stripped>
+            <Section backgroundColor='secondary' borders='all-but-bottom' padding css={styles.section} stripped>
                 <article>
                     <p>
                         Bonjour et bienvenue sur mon CV. Je m'appelle <em>Florian Alù</em> et suis fraîchement diplômé

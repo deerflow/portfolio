@@ -8,7 +8,7 @@ import { scrollTransition, themeTransition } from '../modules/Transitions';
 
 const Section: FCWithChildren<Props> = ({
     children,
-    style,
+    className,
     backgroundColor,
     dotted,
     borders,
@@ -29,12 +29,11 @@ const Section: FCWithChildren<Props> = ({
                           padding: var(--dimension-section-padding);
                       `
                     : ''};
-                ${style};
-            ` as unknown as FCWithChildren,
-        [style, backgroundColor, dotted, borders, padding, stripped, stripOrientation]
+            `,
+        [backgroundColor, dotted, borders, padding, stripped, stripOrientation]
     );
 
-    return <Section>{children}</Section>;
+    return <Section className={className}>{children}</Section>;
 };
 
 const baseStyle = css`

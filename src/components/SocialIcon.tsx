@@ -3,9 +3,9 @@ import { css } from '@emotion/react';
 import { Stylable } from '../types/_extendFrom';
 import ExternalLink from './ExternalLink';
 
-const SocialIcon: FC<Props> = ({ icon, href, style }) => {
+const SocialIcon: FC<Props> = ({ icon, href, className }) => {
     return (
-        <ExternalLink href={href} style={style}>
+        <ExternalLink href={href} className={className}>
             {svgs[icon]}
         </ExternalLink>
     );

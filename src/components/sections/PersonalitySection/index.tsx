@@ -9,7 +9,7 @@ const PersonalitySection: FC = () => {
             backgroundColor='secondary'
             borders='all-but-bottom'
             padding
-            style={styles.section}
+            css={styles.section}
             stripped
             stripOrientation='-45deg'
         >

@@ -173,6 +173,10 @@ const globalStyles = css`
             overflow-wrap: break-word;
         }
     }
+
+    .sr-only {
+        display: none;
+    }
 `;
 
 export default globalStyles;

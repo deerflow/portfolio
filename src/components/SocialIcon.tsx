@@ -3,10 +3,11 @@ import { Stylable } from '../types/_extendFrom';
 import ExternalLink from './ExternalLink';
 import styled from '@emotion/styled';
 
-const SocialIcon: FC<Props> = ({ icon, href, className }) => {
+const SocialIcon: FC<Props> = ({ icon, href, name, className }) => {
     return (
         <ExternalLink href={href} className={className}>
             {svgs[icon]}
+            <span className='sr-only'>{name ? name : icon}</span>
         </ExternalLink>
     );
 };
@@ -31,7 +32,7 @@ const Svg = styled.svg`
 `;
 
 const svgs = {
-    gitHub: (
+    GitHub: (
         <Svg width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
                 d='M17.9304 0C8.02898 0 0 8.02758 0 17.9304C0 25.8526 5.13759 32.5737 12.2619 34.9446C13.158 35.1105 13.4871 34.5556 13.4871 34.082C13.4871 33.6545 13.4703 32.2419 13.4627 30.7437C8.47434 31.8284 7.42177 28.6282 7.42177 28.6282C6.60614 26.5556 5.43094 26.0047 5.43094 26.0047C3.80419 24.8917 5.55356 24.9145 5.55356 24.9145C7.35413 25.0411 8.30222 26.7623 8.30222 26.7623C9.90141 29.5035 12.4968 28.711 13.52 28.253C13.6808 27.0939 14.1456 26.3031 14.6583 25.8553C10.6758 25.4018 6.48914 23.8643 6.48914 16.994C6.48914 15.0365 7.18959 13.4369 8.33667 12.1812C8.15048 11.7295 7.5368 9.90591 8.51034 7.43611C8.51034 7.43611 10.016 6.95419 13.4425 9.27408C14.8726 8.87667 16.4066 8.67755 17.9304 8.6708C19.4542 8.67755 20.9893 8.87667 22.4222 9.27408C25.8446 6.95419 27.3482 7.43611 27.3482 7.43611C28.3241 9.90591 27.7102 11.7295 27.524 12.1812C28.6736 13.4369 29.3693 15.0363 29.3693 16.994C29.3693 23.8807 25.1747 25.3972 21.1821 25.841C21.8251 26.3974 22.3982 27.4887 22.3982 29.1614C22.3982 31.5605 22.3774 33.4914 22.3774 34.082C22.3774 34.5592 22.7001 35.1183 23.6091 34.9422C30.7295 32.5686 35.8606 25.85 35.8606 17.9304C35.8606 8.02758 27.8328 0 17.9304 0Z'
@@ -43,7 +44,7 @@ const svgs = {
             />
         </Svg>
     ),
-    linkedIn: (
+    LinkedIn: (
         <Svg width='36' height='37' viewBox='0 0 36 37' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <g clipPath='url(#clip0_54_6)'>
                 <path
@@ -60,7 +61,7 @@ const svgs = {
             </defs>
         </Svg>
     ),
-    mail: (
+    Mail: (
         <Svg width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <g clipPath='url(#clip0_54_10)'>
                 <path
@@ -82,6 +83,7 @@ const svgs = {
 interface Props extends Stylable {
     icon: keyof typeof svgs;
     href: string;
+    name?: string;
 }
 
 export default SocialIcon;

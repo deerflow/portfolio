@@ -20,7 +20,7 @@ const Footer: FC = () => {
 const FooterTag = styled.footer`
     border: 2px solid var(--color-dark);
     padding: 2rem;
-    color: var(--color-footer);
+    color: var(--color-footer-text);
     ${themeTransition('color', 'border-color')};
 
     @media (max-width: 370px) {

@@ -29,6 +29,7 @@ const lightColors = css`
     --color-accent: #f9f0e9;
     --color-shadow: #746a61;
     --color-footer: #a7a7a7;
+    --color-footer-text: #878787;
     --color-link: #6286e1;
 `;
 

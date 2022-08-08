@@ -5,7 +5,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 const ProfilePicture: FC = () => {
     return (
         <Root>
-            <StaticImage src='../assets/jpg/profile.jpg' alt='Photo de Florian Alù' width={233} height={233} />
+            <StaticImage src='../assets/webp/profile.webp' alt='Photo de Florian Alù' width={233} height={233} />
         </Root>
     );
 };

@@ -25,7 +25,7 @@ const FooterTag = styled.footer`
     border: 2px solid var(--color-dark);
     padding: 2rem;
     color: var(--color-footer-text);
-    ${themeTransition('color', 'border-color')};
+    ${themeTransition('border-color')};
 
     @media (max-width: 370px) {
         padding: max(8.6vw, 0.5rem);

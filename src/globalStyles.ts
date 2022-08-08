@@ -29,7 +29,7 @@ const lightColors = css`
     --color-accent: #f9f0e9;
     --color-shadow: #746a61;
     --color-footer: #a7a7a7;
-    --color-footer-text: #878787;
+    --color-footer-text: #626262;
     --color-link: #6286e1;
 `;
 
@@ -41,6 +41,7 @@ const darkColors = css`
     --color-light: #000;
     --color-accent: #643b1b;
     --color-shadow: #8b7f74;
+    --color-footer-text: #c7c7c7;
     --color-link: #7e9ce7;
 `;
 

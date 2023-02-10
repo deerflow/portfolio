@@ -23,7 +23,6 @@ const Contact: FC<PageProps> = ({ location }) => {
                     <Address>
                         <Name>Florian Alù</Name>
                         <a href='mailto:alu.florian@gmail.com'>alu.florian@gmail.com</a>
-                        <a href='tel:0648937151'>06 48 93 71 51</a>
                         <SocialLink href='https://www.linkedin.com/in/florian-alù/'>
                             {svgs.linkedIn}
                             LinkedIn
